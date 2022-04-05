@@ -26,7 +26,7 @@ export async function post({ request }) {
       headers: {
         'Set-Cookie': serialize('session_id', id, {
           path: '/',
-          httpOnly: true,
+          // httpOnly: true,
           sameSite: 'strict',
           secure: true,
           maxAge: 60 * 60 * 24 * 7
