@@ -27,9 +27,8 @@ export async function post({ request }) {
         'Set-Cookie': serialize('session_id', id, {
           path: '/',
           httpOnly: true,
-          sameSite: 'strict',
+          sameSite: 'lax',
           secure: true,
-          domain: 'aviate.vercel.app',
           maxAge: 60 * 60 * 24 * 7
         })
       }
