@@ -38,7 +38,7 @@
 
       promise.then(res => {
         if (res.ok) {
-          location.reload();
+          window.location.href = '/dashboard';
         }
       });
     }
