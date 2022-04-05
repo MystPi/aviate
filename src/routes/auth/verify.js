@@ -28,7 +28,7 @@ export async function post({ request }) {
           path: '/',
           httpOnly: true,
           sameSite: 'lax',
-          // secure: true,
+          secure: true,
           maxAge: 60 * 60 * 24 * 7
         })
       }
