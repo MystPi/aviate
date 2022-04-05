@@ -15,6 +15,8 @@ const config = {
         },
       },
     },
+
+    trailingSlash: 'always'
   },
 
   preprocess: [
