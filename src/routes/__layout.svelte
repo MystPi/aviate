@@ -24,14 +24,14 @@
   }
 </script>
 
-<img src="blur.svg" alt="" class="blob" id="right">
-<img src="blur.svg" alt="" class="blob" id="left">
+<img src="/blur.svg" alt="" class="blob" id="right">
+<img src="/blur.svg" alt="" class="blob" id="left">
 
 <div id="container" class="container mx-auto p-6">
   <nav class="navbar is-transparent" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item has-text-primary has-text-weight-bold" href="/">
-        <img src="aviate-logo.svg" alt="" width="28" height="28">
+        <img src="/aviate-logo.svg" alt="" width="28" height="28">
       </a>
 
       <button bind:this={navbarBurger} on:click={toggleDropdown} class="navbar-burger" aria-label="menu">

@@ -7,8 +7,8 @@
 </svelte:head>
 
 <div class="has-text-centered section mb-7">
-  <img id="pulse" src="aviate-logo.svg" alt="" class="is-unselectable">
-  <img src="aviate-logo.svg" alt="Aviate logo" class="mb-4 is-unselectable">
+  <img id="pulse" src="/aviate-logo.svg" alt="" class="is-unselectable">
+  <img src="/aviate-logo.svg" alt="Aviate logo" class="mb-4 is-unselectable">
   <Header>
     <span slot="title">Welcome to <span class="highlight">Aviate</span></span>
     <span slot="subtitle">
