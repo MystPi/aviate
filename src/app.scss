@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+$primary: #22B9CD;
+$title-weight: bolder;
+
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/base/_all";
+@import "bulma/sass/elements/_all";
+@import "bulma/sass/form/_all";
+@import "bulma/sass/components/_all";
+@import "bulma/sass/grid/_all";
+@import "bulma/sass/helpers/_all";
+@import "bulma/sass/layout/_all";
+
+
+html {
+  @extend .has-background-light;
+}
+
+h1 {
+  @extend .font-header;
+}
+
+.font-header {
+  font-family: 'Lobster', 'Times New Roman', Times, serif;
+}
+
+.highlight {
+  @extend .has-text-primary;
+  text-shadow: 0 4px 12px rgba(34, 185, 205, 0.3);
+}
+
+.navbar, code {
+  background-color: transparent !important;
+}
+
+.mb-7 {
+  margin-bottom: 4rem;
+}
+
+.mt-7 {
+  margin-top: 4rem;
+}

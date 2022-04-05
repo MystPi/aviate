@@ -1,0 +1,23 @@
+{
+  "name": "aviate",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^1.33.2",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "bulma": "^0.9.3",
+    "cookie": "^0.4.2",
+    "sass": "^1.46.0",
+    "svelte": "^3.44.0",
+    "svelte-preprocess": "^4.10.1",
+    "uuid": "^8.3.2"
+  },
+  "type": "module"
+}
