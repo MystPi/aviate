@@ -55,4 +55,14 @@
     Please report it on an <a href="/admins">admin</a>'s profile and they will
     delete the user's status.
   </p>
+
+  <h3>Will there be Scratch integration?</h3>
+  <p>
+    Hopefully! A browser extension or SA addon is planned, so stay tuned. Please note that
+    due to Scratch's browser extension policy, the extension/addon will not be linked
+    here; instead, you will be able to find it on GitHub (mystpi/aviate-extension) once it's ready.
+  </p>
+
+  <h3>How do I become an admin?</h3>
+  <p>See the <a href="/admins">admins</a> page for information.</p>
 </div>
