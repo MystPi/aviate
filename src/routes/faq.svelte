@@ -58,7 +58,7 @@
 
   <h3>Will there be Scratch integration?</h3>
   <p>
-    Hopefully! A browser extension or SA addon is planned, so stay tuned. Please note that
+    Hopefully! A browser extension or Nono Word addon is planned, so stay tuned. Please note that
     due to Scratch's browser extension policy, the extension/addon will not be linked
     here; instead, you will be able to find it on GitHub (mystpi/aviate-extension) once it's ready.
   </p>
