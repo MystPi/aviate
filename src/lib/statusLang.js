@@ -234,6 +234,9 @@ export async function run(status, user) {
     const result = await evaluate(parse(tokenize(status)), data);
     return result.replace(/\n/g, ' ');
   } catch (e) {
+    if (e.message === 'Unexpected token < in JSON at position 0') {
+      return '[error] looks like ScratchDB or the joke API is down, try again later';
+    }
     return '[error] ' + e.message;
   }
 }
