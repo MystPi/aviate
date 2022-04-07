@@ -1,3 +1,22 @@
+const forums = {
+  total: 'total',
+  sat: 'Show and Tell',
+  announcements: 'Announcements',
+  ns: 'New Scratchers',
+  hws: 'Help with Scripts',
+  requests: 'Requests',
+  dse: 'Developing Scratch Extensions',
+  qas: 'Questions about Scratch',
+  at: 'Advanced Topics',
+  suggestions: 'Suggestions',
+  collaboration: 'Collaboration',
+  bag: 'Bugs and Glitches',
+  pi: 'Project Ideas',
+  osp: 'Open Source Projects',
+  timac: 'Things I\'m Making and Creating'
+};
+
+
 class Token {
   constructor(type, value) {
     this.type = type;
@@ -127,8 +146,19 @@ function assertCategory(args) {
   assertAmount(args, 1);
 
   args.forEach(arg => {
-    if (!['loves', 'favorites', 'comments', 'views', 'followers', 'following'].includes(arg)) {
+    if (!['loves', 'favorites', 'comments', 'views', 'followers', 'following'].includes(arg.toLowerCase())) {
       throw new TypeError('expected a category');
+    }
+  })
+}
+
+
+function assertForum(args) {
+  assertAmount(args, 1);
+
+  args.forEach(arg => {
+    if (!forums.hasOwnProperty(arg.toLowerCase())) {
+      throw new TypeError('expected a forum');
     }
   })
 }
@@ -171,20 +201,30 @@ export async function evaluate(parsed, data) {
         case 'joke':
           assertAmount(args, 0);
           return data.joke;
+        case 'round':
+          if (args.length === 1) {
+            assertNumbers(args, 1);
+            return Math.round(args[0]);
+          }
+          assertNumbers(args, 2);
+          return Math.round((args[0] + Number.EPSILON) * (10 ** args[1])) / (10 ** args[1]);
 
         // Statistics
         case 'followers':
           assertAmount(args, 0);
           return dataFromPath(data, 'statistics.followers');
         case 'posts':
-          assertAmount(args, 0);
-          return dataFromPath(data, 'posts');
+          if (args.length === 0) {
+            return dataFromPath(data, 'forumData.counts.total.count');
+          }
+          assertForum(args);
+          return dataFromPath(data, `forumData.counts.${forums[args[0].toLowerCase()]}.count`);
         case 'rank':
           assertCategory(args);
-          return dataFromPath(data, 'statistics.ranks.' + args[0]);
+          return dataFromPath(data, 'statistics.ranks.' + args[0].toLowerCase());
         case 'stats':
           assertCategory(args);
-          return dataFromPath(data, 'statistics.ranks.' + args[0]);
+          return dataFromPath(data, 'statistics.ranks.' + args[0].toLowerCase());
 
         // Math
         case 'add':
@@ -243,7 +283,7 @@ export async function run(status, user) {
 
     const data = {
       ...userData,
-      posts: forumData.counts?.total?.count,
+      forumData,
       joke
     };
 
