@@ -88,3 +88,8 @@ export async function setStatus(username, status) {
   await supabase.from('users').update(user).eq('username', username);
   return Promise.resolve(user);
 }
+
+export async function getAllUsers() {
+  const users = await supabase.from('users').select();
+  return Promise.resolve(users.data || []);
+}

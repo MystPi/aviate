@@ -1,4 +1,6 @@
 <script context="module">
+  import { getAllUsers } from '$lib/db';
+
   export async function load({ session }) {
     if (!session?.user?.is_admin) {
       return {
@@ -9,7 +11,8 @@
 
     return {
       props: {
-        user: session.user
+        user: session.user,
+        users: await getAllUsers()
       }
     };
   }
@@ -20,6 +23,7 @@
   import Loader from '$lib/components/Loader.svelte';
 
   export let user;
+  export let users;
 
   let setUsername;
   let setPromise;
@@ -64,7 +68,33 @@
         <button on:click={() => { setStatus(); mode = 'username' }} class="button is-danger">
           Set the status for {setUsername}
         </button>
+        <button class="button" on:click={() => { mode = 'username' }}>Cancel</button>
       {/if}
     </div>
   </div>
+  <div id="table-container">
+    <table class="table is-bordered is-hoverable">
+      <thead>
+        <th>Username</th>
+        <th>Status</th>
+        <th>Admin</th>
+      </thead>
+      <tbody>
+        {#each users as u}
+          <tr>
+            <td><a href="https://scratch.mit.edu/users/{u.username}">{u.username}</a></td>
+            <td><code>{u.status}</code></td>
+            <td>{u.is_admin ? 'yes' : 'no'}</td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<style>
+  #table-container {
+    max-height: 40rem;
+    overflow: auto;
+  }
+</style>
