@@ -225,10 +225,20 @@ export async function run(status, user) {
 
     try {
       userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+    } catch (e) {
+      userData = {};
+    }
+
+    try {
       forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
+    } catch (e) {
+      forumData = {};
+    }
+
+    try {
       joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
-    } catch(e) {
-      userData = forumData = joke = {};
+    } catch (e) {
+      joke = '[joke couldn\'t be fetched]';
     }
 
     const data = {
