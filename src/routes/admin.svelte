@@ -1,6 +1,4 @@
 <script context="module">
-  import { getAllUsers } from '$lib/db';
-
   export async function load({ session }) {
     if (!session?.user?.is_admin) {
       return {
@@ -12,7 +10,7 @@
     return {
       props: {
         user: session.user,
-        users: await getAllUsers()
+        users: session.users
       }
     };
   }

@@ -140,7 +140,7 @@ function dataFromPath(data, path) {
 
   for (let p of path) {
     if (current[p] === undefined) {
-      throw new TypeError('the requested data is not available for this user');
+      throw new TypeError('the requested data is not available for this user right now');
 
     }
     current = current[p];
@@ -221,9 +221,15 @@ export async function evaluate(parsed, data) {
 
 export async function run(status, user) {
   try {
-    const userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
-    const forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
-    const joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
+    let userData, forumData, joke;
+
+    try {
+      userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
+      joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
+    } catch(e) {
+      userData = forumData = joke = {};
+    }
 
     const data = {
       ...userData,
@@ -234,9 +240,6 @@ export async function run(status, user) {
     const result = await evaluate(parse(tokenize(status)), data);
     return result.replace(/\n/g, ' ');
   } catch (e) {
-    if (e.message === 'Unexpected token < in JSON at position 0') {
-      return '[error] looks like ScratchDB or the joke API is down, try again later';
-    }
     return '[error] ' + e.message;
   }
 }

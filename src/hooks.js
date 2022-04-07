@@ -1,5 +1,5 @@
 import { parse } from 'cookie';
-import { getUserFromCookies } from '$lib/db';
+import { getUserFromCookies, getAllUsers } from '$lib/db';
 
 
 export async function handle({ event, resolve }) {
@@ -8,10 +8,16 @@ export async function handle({ event, resolve }) {
 
   if (user) {
     event.locals.user = user;
+
+    if (user.is_admin) {
+      event.locals.users = await getAllUsers();
+    }
+
     return resolve(event);
   }
 
   event.locals.user = null;
+  event.locals.users = null;
   return resolve(event);
 }
 
