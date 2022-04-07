@@ -201,13 +201,6 @@ export async function evaluate(parsed, data) {
         case 'joke':
           assertAmount(args, 0);
           return data.joke;
-        case 'round':
-          if (args.length === 1) {
-            assertNumbers(args, 1);
-            return Math.round(args[0]);
-          }
-          assertNumbers(args, 2);
-          return Math.round((args[0] + Number.EPSILON) * (10 ** args[1])) / (10 ** args[1]);
 
         // Statistics
         case 'followers':
@@ -248,6 +241,13 @@ export async function evaluate(parsed, data) {
         case 'random':
           assertNumbers(args, 2);
           return Math.floor(Math.random() * (args[1] - args[0] + 1)) + args[0];
+        case 'round':
+          if (args.length === 1) {
+            assertNumbers(args, 1);
+            return Math.round(args[0]);
+          }
+          assertNumbers(args, 2);
+          return Math.round((args[0] + Number.EPSILON) * (10 ** args[1])) / (10 ** args[1]);
 
         default:
           throw new Error('unknown component: ' + name);

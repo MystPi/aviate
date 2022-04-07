@@ -155,8 +155,6 @@
     <li><code>{'{bio}'}</code> → your "About Me"
     <li><code>{'{work}'}</code> → your "What I'm Working On"
     <li><code>{'{joke}'}</code> → a randomly generated programming joke
-    <li><code>{'{'}round <u>number</u>}</code> → rounds <code><u>number</u></code> to the nearest integer
-    <li><code>{'{'}round <u>a (number)</u> <u>b (number)</u>}</code> → rounds <code><u>a</u></code> to the nearest <code><u>b</u></code> decimal places
   </ul>
   <h3>Statistics</h3>
   <ul>
@@ -175,6 +173,8 @@
     <li><code>{'{'}pow <u>a (number)</u> <u>b (number)</u>}</code> → raise <code><u>a</u></code> to the power of <code><u>b</u></code>
     <li><code>{'{'}root <u>a (number)</u> <u>b (number)</u>}</code> → find the <code><u>b</u></code>th root of <code><u>a</u></code>
     <li><code>{'{'}random <u>a (number)</u> <u>b (number)</u>}</code> → generate a random number between <code><u>a</u></code> and <code><u>b</u></code>
+    <li><code>{'{'}round <u>number</u>}</code> → rounds <code><u>number</u></code> to the nearest integer
+    <li><code>{'{'}round <u>a (number)</u> <u>b (number)</u>}</code> → rounds <code><u>a</u></code> to the nearest <code><u>b</u></code> decimal places
   </ul>
   <h3>Examples</h3>
   <ul>
