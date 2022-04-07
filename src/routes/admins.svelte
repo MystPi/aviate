@@ -16,7 +16,8 @@
     <li>NFlex23 - <a href="https://scratch.mit.edu/users/NFlex23#comments">Scratch</a></li>
     <li>Mbrick2 - <a href="https://scratch.mit.edu/users/Mbrick2#comments">Scratch</a></li>
     <li>Chiroyce - <a href="https://scratch.mit.edu/users/Chiroyce#comments">Scratch</a></li>
-    <li>scratchusername40 - <a href="https://scratch.mit.edu/users/scratchusername40#comments">scratchusername40</a></li>
+    <li>scratchusername40 - <a href="https://scratch.mit.edu/users/scratchusername40#comments">Scratch</a></li>
+    <li>ScolderCreations - <a href="https://scratch.mit.edu/users/ScolderCreations#comments">Scratch</a></li>
   </ul>
   <h2>How to become an admin</h2>
   <p>
