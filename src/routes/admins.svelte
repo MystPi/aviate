@@ -14,6 +14,7 @@
 <div class="content">
   <ul>
     <li>NFlex23 - <a href="https://scratch.mit.edu/users/NFlex23">Scratch</a></li>
+    <li>Mbrick2 - <a href="https://scratch.mit.edu/users/Mbrick2>Scratch</a></li>
   </ul>
   <h2>How to become an admin</h2>
   <p>
