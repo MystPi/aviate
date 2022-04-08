@@ -61,9 +61,6 @@ export async function post({ params, request }) {
     };
   }
 
-  const cookies = parse(request.headers.get('cookie') || '');
-  const user = await getUserFromCookies(cookies);
-
   if (!status) {
     status = '';
   }
@@ -74,6 +71,9 @@ export async function post({ params, request }) {
       status: 400
     };
   }
+
+  const cookies = parse(request.headers.get('cookie') || '');
+  const user = await getUserFromCookies(cookies);
 
   if (user) {
     if (user.username === params.username) {

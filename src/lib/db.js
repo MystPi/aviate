@@ -89,7 +89,14 @@ export async function setStatus(username, status) {
   return Promise.resolve(user);
 }
 
+
 export async function getAllUsers() {
   const users = await supabase.from('users').select();
   return Promise.resolve(users.data || []);
+}
+
+
+export async function sendFeedback(feedback) {
+  await supabase.from('feedback').insert([feedback]);
+  return Promise.resolve(feedback);
 }

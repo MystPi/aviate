@@ -2,7 +2,7 @@
   export async function load({ session }) {
     return {
       props: {
-        loggedIn: !!session.user,
+        loggedIn: !!session?.user,
         isAdmin: session?.user?.is_admin
       }
     };
@@ -10,7 +10,8 @@
 </script>
 
 <script>
-  import "../app.scss";
+  import '../app.scss';
+  import { onMount } from "svelte";
 
   export let loggedIn;
   export let isAdmin;
@@ -22,7 +23,16 @@
     navbarBurger.classList.toggle('is-active');
     navbar.classList.toggle('is-active');
   }
+
+  onMount(() => {
+    window.feedbackfin = { config: {}, ...window.feedbackfin };
+    window.feedbackfin.config.url = '/api/feedback';
+  });
 </script>
+
+<svelte:head>
+  <script src="https://unpkg.com/feedbackfin@^1" defer></script>
+</svelte:head>
 
 <img src="/blur.svg" alt="" class="blob" id="right">
 <img src="/blur.svg" alt="" class="blob" id="left">
@@ -50,6 +60,11 @@
         <a href="/faq" class="navbar-item">
           FAQs
         </a>
+
+        {#if loggedIn}
+          <!-- svelte-ignore a11y-invalid-attribute -->
+          <a href="javascript:void(0)" class="navbar-item" data-feedbackfin-button>Feedback</a>
+        {/if}
       </div>
 
       <div class="navbar-end">
