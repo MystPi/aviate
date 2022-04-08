@@ -50,6 +50,10 @@
         <a href="/faq" class="navbar-item">
           FAQs
         </a>
+        
+        <a href="/browse" class="navbar-item">
+          Browse
+        </a>
       </div>
 
       <div class="navbar-end">
