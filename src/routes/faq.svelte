@@ -53,7 +53,8 @@
   <h3>What should I do if I find an inappropriate status?</h3>
   <p>
     Please report it on an <a href="/admins">admin</a>'s profile and they will
-    delete the user's status.
+    delete the user's status. Alternatively, you can click the 'feedback' link
+    at the top of the page then click 'other' and report the status.
   </p>
 
   <h3>Will there be Scratch integration?</h3>

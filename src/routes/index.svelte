@@ -46,8 +46,7 @@
 
   <h2 id="feedback">Any feedback?</h2>
   <p>
-    We're always happy to help; you can leave a comment on the
-    <a href="https://scratch.mit.edu/users/NFlex23#comments">creator's profile</a> or make an issue on
+    We're always happy to help; you can click the 'feedback' link at the top of the page or make an issue on
     Aviate's <a href="https://github.com/mystpi/aviate">GitHub repository</a> if you have any
     feedback or questions. Before doing that, you may want to look at the
     <a href="/faq">FAQ</a> page to see if your question is answered there.
