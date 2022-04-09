@@ -30,6 +30,7 @@
 
   let setUsername;
   let setPromise;
+  let feedbackPromise;
   let status;
   let mode = 'username';
 
@@ -46,6 +47,21 @@
     const date = new Date(ts);
     return  date.toLocaleTimeString() + ' on ' + date.toLocaleDateString();
   }
+
+  function deleteFeedback(ts) {
+    if (confirm('Are you sure you want to delete this feedback? Please don\'t delete it unless you have good reason to.')) {
+      feedbackPromise = fetch('/backend/feedback/', {
+        method: 'DELETE',
+        body: JSON.stringify({
+          timestamp: ts
+        })
+      });
+
+      feedbackPromise.then((res) => {
+        if (res.ok) location.reload();
+      });
+    }
+  }
 </script>
 
 <svelte:head>
@@ -58,65 +74,75 @@
 </Header>
 
 <div class="content">
-  <h6>Set a status <Loader promise={setPromise}></Loader></h6>
-  <div class="field is-grouped">
-    <div class="control is-expanded">
-      {#if mode === 'username'}
-        <input bind:value={setUsername} class="input" type="text" placeholder="Username">
-      {:else}
-        <input bind:value={status} class="input" type="text" placeholder="Status">
-      {/if}
+  <div class="box">
+    <h6>Set a status <Loader promise={setPromise}></Loader></h6>
+    <div class="field is-grouped">
+      <div class="control is-expanded">
+        {#if mode === 'username'}
+          <input bind:value={setUsername} class="input" type="text" placeholder="Username">
+        {:else}
+          <input bind:value={status} class="input" type="text" placeholder="Status">
+        {/if}
+      </div>
+      <div class="control">
+        {#if mode === 'username'}
+          <button on:click={() => { if (setUsername) mode = 'status' }} class="button is-dark">
+            Set this user's status
+          </button>
+        {:else}
+          <button on:click={() => { setStatus(); mode = 'username' }} class="button is-danger">
+            Set the status for {setUsername}
+          </button>
+          <button class="button" on:click={() => { mode = 'username' }}>Cancel</button>
+        {/if}
+      </div>
     </div>
-    <div class="control">
-      {#if mode === 'username'}
-        <button on:click={() => { if (setUsername) mode = 'status' }} class="button is-dark">
-          Set this user's status
-        </button>
-      {:else}
-        <button on:click={() => { setStatus(); mode = 'username' }} class="button is-danger">
-          Set the status for {setUsername}
-        </button>
-        <button class="button" on:click={() => { mode = 'username' }}>Cancel</button>
-      {/if}
+    <div class="table-max-height block">
+      <table class="table is-bordered is-hoverable">
+        <thead>
+          <th>Username</th>
+          <th>Status</th>
+          <th>Admin</th>
+        </thead>
+        <tbody>
+          {#each users as u}
+            <tr>
+              <td><a href="https://scratch.mit.edu/users/{u.username}">{u.username}</a></td>
+              <td><code>{u.status}</code></td>
+              <td>{u.is_admin ? 'yes' : 'no'}</td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="table-max-height block">
-    <table class="table is-bordered is-hoverable">
-      <thead>
-        <th>Username</th>
-        <th>Status</th>
-        <th>Admin</th>
-      </thead>
-      <tbody>
-        {#each users as u}
-          <tr>
-            <td><a href="https://scratch.mit.edu/users/{u.username}">{u.username}</a></td>
-            <td><code>{u.status}</code></td>
-            <td>{u.is_admin ? 'yes' : 'no'}</td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
-  </div>
-  <div class="table-max-height">
-    <table class="table is-bordered is-hoverable">
-      <thead>
-        <th>Username</th>
-        <th>Type</th>
-        <th>Message</th>
-        <th>Timestamp</th>
-      </thead>
-      <tbody>
-        {#each feedback as f}
-          <tr>
-            <td><a href="https://scratch.mit.edu/users/{f.username}">{f.username}</a></td>
-            <td>{f.feedbackType}</td>
-            <td>{f.message}</td>
-            <td>{getDate(f.timestamp)}</td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
+
+  <div class="box">
+    <h6>View/delete feedback <Loader promise={feedbackPromise}></Loader></h6>
+    <div class="table-max-height">
+      <table class="table is-bordered is-hoverable">
+        <thead>
+          <th>Username</th>
+          <th>Type</th>
+          <th>Message</th>
+          <th>Timestamp</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          {#each feedback as f}
+            <tr>
+              <td><a href="https://scratch.mit.edu/users/{f.username}">{f.username}</a></td>
+              <td>{f.feedbackType}</td>
+              <td>{f.message}</td>
+              <td>{getDate(f.timestamp)}</td>
+              <td>
+                <button class="button is-danger is-small" on:click={() => deleteFeedback(f.timestamp)}>Delete</button>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 

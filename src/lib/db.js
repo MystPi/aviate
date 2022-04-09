@@ -106,3 +106,13 @@ export async function getAllFeedback() {
   const feedback = await supabase.from('feedback').select();
   return Promise.resolve(feedback.data || []);
 }
+
+
+export async function deleteFeedback(ts) {
+  const feedback = await getData('feedback', 'timestamp', ts);
+
+  if (!feedback.data?.length) return Promise.resolve(null);
+
+  await supabase.from('feedback').delete().eq('timestamp', ts);
+  return Promise.resolve(ts);
+}
