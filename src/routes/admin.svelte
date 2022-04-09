@@ -1,5 +1,5 @@
 <script context="module">
-  export async function load({ session }) {
+  export async function load({ session, fetch }) {
     if (!session?.user?.is_admin) {
       return {
         status: 302,
@@ -7,10 +7,14 @@
       };
     }
 
+    const res = await fetch('/backend/admin');
+    const data = await res.json();
+
     return {
       props: {
         user: session.user,
-        users: session.users
+        users: data.users,
+        feedback: data.feedback
       }
     };
   }
@@ -22,6 +26,7 @@
 
   export let user;
   export let users;
+  export let feedback;
 
   let setUsername;
   let setPromise;
@@ -35,6 +40,11 @@
         status
       })
     });
+  }
+
+  function getDate(ts) {
+    const date = new Date(ts);
+    return  date.toLocaleTimeString() + ' on ' + date.toLocaleDateString();
   }
 </script>
 
@@ -70,7 +80,7 @@
       {/if}
     </div>
   </div>
-  <div id="table-container">
+  <div class="table-max-height block">
     <table class="table is-bordered is-hoverable">
       <thead>
         <th>Username</th>
@@ -88,10 +98,30 @@
       </tbody>
     </table>
   </div>
+  <div class="table-max-height">
+    <table class="table is-bordered is-hoverable">
+      <thead>
+        <th>Username</th>
+        <th>Type</th>
+        <th>Message</th>
+        <th>Timestamp</th>
+      </thead>
+      <tbody>
+        {#each feedback as f}
+          <tr>
+            <td><a href="https://scratch.mit.edu/users/{f.username}">{f.username}</a></td>
+            <td>{f.feedbackType}</td>
+            <td>{f.message}</td>
+            <td>{getDate(f.timestamp)}</td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <style>
-  #table-container {
+  .table-max-height {
     max-height: 40rem;
     overflow: auto;
   }

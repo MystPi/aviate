@@ -100,3 +100,9 @@ export async function sendFeedback(feedback) {
   await supabase.from('feedback').insert([feedback]);
   return Promise.resolve(feedback);
 }
+
+
+export async function getAllFeedback() {
+  const feedback = await supabase.from('feedback').select();
+  return Promise.resolve(feedback.data || []);
+}

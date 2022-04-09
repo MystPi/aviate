@@ -26,7 +26,7 @@
 
   onMount(() => {
     window.feedbackfin = { config: {}, ...window.feedbackfin };
-    window.feedbackfin.config.url = '/api/feedback';
+    window.feedbackfin.config.url = '/backend/feedback';
   });
 </script>
 

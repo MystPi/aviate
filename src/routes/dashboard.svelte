@@ -35,7 +35,7 @@
   }
 
   async function testStatus() {
-    promise = fetch('/api/demo', {
+    promise = fetch('/backend/demo', {
       method: 'POST',
       body: JSON.stringify({
         status

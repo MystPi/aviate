@@ -1,5 +1,5 @@
 import { serialize } from 'cookie';
-import { createSession, getUserByUsername, createUser, deleteSession } from '$lib/db';
+import { createSession, getUserByUsername, createUser } from '$lib/db';
 
 
 export async function post({ request }) {
