@@ -40,6 +40,7 @@ export async function del({ request }) {
   try {
     const body = await request.json();
     ts = body.timestamp;
+    if (ts === undefined) return { status: 400 };
   } catch (e) {
     return {
       status: 400

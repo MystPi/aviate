@@ -55,6 +55,7 @@ export async function post({ params, request }) {
   try {
     const body = await request.json();
     status = body.status;
+    if (status === undefined) return { status: 400 };
   } catch (e) {
     return {
       status: 400
