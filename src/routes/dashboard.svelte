@@ -138,6 +138,8 @@
       <li><b>pi</b>: Project Ideas
       <li><b>osp</b>: Open Source Projects
       <li><b>timac</b>: Things I'm Making and Creating
+      <li><b>tirap</b>: Things I'm Reading and Playing
+      <li><b>ctpw</b>: Connecting to the Physical World
     </ul>
   </details>
   <br/>

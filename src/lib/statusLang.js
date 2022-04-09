@@ -13,7 +13,9 @@ const forums = {
   bag: 'Bugs and Glitches',
   pi: 'Project Ideas',
   osp: 'Open Source Projects',
-  timac: 'Things I\'m Making and Creating'
+  timac: 'Things I\'m Making and Creating',
+  tirap: 'Things I\'m Reading and Playing',
+  cthpw: 'Connecting to the Physical World'
 };
 
 
