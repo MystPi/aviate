@@ -27,4 +27,8 @@ export async function post({ request }) {
   };
 
   await sendFeedback({...feedback, username: user.username});
+
+  return {
+    status: 200
+  };
 }
