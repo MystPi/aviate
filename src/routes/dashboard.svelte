@@ -117,6 +117,7 @@
       <li>followers
       <li>following
     </ul>
+    <br/>
   </details>
   <details>
     <summary class="is-unselectable">
