@@ -117,8 +117,8 @@
       <li>followers
       <li>following
     </ul>
+    <br/>
   </details>
-  <br>
   <details>
     <summary class="is-unselectable">
       <b>Forums (click to expand)</b>
@@ -185,7 +185,7 @@
     <li><code>If you add 3 and 4, then multiple that by two, you get {'{mul {add 3 4} 2}'}</code>
     <li><code>Here's a funny joke: {'{joke}'}</code>
     <li><code>Think of a number between 1 and 10. What is {'{random 1 10}'}? If so, you got it right!</code>
-    <li><code>{'I have {posts} forum posts, with {round {mul {div {posts at} {posts}} 100} 1}% of them in the ATs.'}</code></li>
+    <li><code>{'I have {posts} forum posts, with {round {mul {div {posts at} {posts}} 100} 1}% of them in the ATs.'}</code>
   </ul>
 </div>
 
