@@ -25,16 +25,12 @@ export async function post({ request }) {
     return {
       status: 200,
       body: {
-        success: true,
         result
       }
     };
   }
 
   return {
-    status: 401,
-    body: {
-      success: false
-    }
+    status: 401
   };
 }

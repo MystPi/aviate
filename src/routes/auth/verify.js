@@ -8,34 +8,32 @@ export async function post({ request }) {
   const res = await fetch('https://fluffyscratch.hampton.pw/auth/verify/v2/' + privateCode);
   const json = await res.json();
 
-  if (json.valid) {
-    const user = await getUserByUsername(json.username);
+  if (!json.valid) return {
+    status: 401
+  };
 
-    if (!user) {
-      await createUser({
-        username: json.username,
-        status: '',
-        is_admin: false
-      });
-    }
+  const user = await getUserByUsername(json.username);
 
-    const { id } = await createSession(json.username);
-
-    return {
-      status: 201,
-      headers: {
-        'Set-Cookie': serialize('session_id', id, {
-          path: '/',
-          httpOnly: true,
-          sameSite: 'lax',
-          secure: true,
-          maxAge: 60 * 60 * 24 * 7
-        })
-      }
-    };
-  } else {
-    return {
-      status: 401
-    };
+  if (!user) {
+    await createUser({
+      username: json.username,
+      status: '',
+      is_admin: false
+    });
   }
+
+  const { id } = await createSession(json.username);
+
+  return {
+    status: 201,
+    headers: {
+      'Set-Cookie': serialize('session_id', id, {
+        path: '/',
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: true,
+        maxAge: 60 * 60 * 24 * 7
+      })
+    }
+  };
 }
