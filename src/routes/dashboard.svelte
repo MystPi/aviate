@@ -66,7 +66,7 @@
 <div class="content">
   {#if scratchDBPromise}
     {#await scratchDBPromise then res}
-      {#if res.ok}
+      {#if !res.ok}
         <div class="notification is-danger">
           <a href="https://scratchdb.lefty.one/v3/docs">ScratchDB</a> is currently down. This
           could affect your status if it has any user/forum information in it.
