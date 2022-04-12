@@ -18,12 +18,14 @@
 <script>
   import Header from '$lib/components/Header.svelte';
   import Loader from '$lib/components/Loader.svelte';
+  import { onMount } from 'svelte';
 
   export let user;
 
   let promise;
   let status = user.status;
   let statusOutput;
+  let scratchDBPromise;
 
   function setStatus() {
     promise = fetch('/api/' + user.username, {
@@ -46,6 +48,10 @@
       .then(res => res.json())
       .then(res => statusOutput = res.result);
   }
+
+  onMount(() => {
+    scratchDBPromise = fetch('https://scratchdb.lefty.one/v3/user/info/' + user.username);
+  });
 </script>
 
 <svelte:head>
@@ -58,6 +64,17 @@
 </Header>
 
 <div class="content">
+  {#if scratchDBPromise}
+    {#await scratchDBPromise then res}
+      {#if res.ok}
+        <div class="notification is-danger">
+          <a href="https://scratchdb.lefty.one/v3/docs">ScratchDB</a> is currently down. This
+          could affect your status if it has any user/forum information in it.
+        </div>
+      {/if}
+    {/await}
+  {/if}
+
   <h6>
     Set your status
     <Loader promise={promise}></Loader>
