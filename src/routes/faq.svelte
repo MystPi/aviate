@@ -38,8 +38,8 @@
     personal information or anything inappropriate for Scratch in it.
   </p>
 
-  <h3>Why does my status say "the requested data is not available for this user"?</h3>
-  <p>There are two possible reasons for this error:</p>
+  <h3>Why does my status say "the requested data is not available for this user right now"?</h3>
+  <p>There are three possible reasons for this error:</p>
   <ol>
     <li>You tried to use <code>{'{'}posts}</code> when you have never posted on the forums</li>
     <li>
@@ -47,6 +47,10 @@
       that uses statistics. The most common reason that
       <a href="https://scratchdb.lefty.one/v3/docs/">ScratchDB</a> hasn't indexed
       you is that you have less than 10 followers.
+    </li>
+    <li>
+      ScratchDB is currently down. This happens a lot, but it's usually fixed
+      within an hour or so.
     </li>
   </ol>
 
