@@ -24,6 +24,6 @@
   <h2>How to become an admin</h2>
   <p>
     Aviate is not currently accepting new admins, but you can join the waitlist by
-    asking on </a href="https://scratch.mit.edu/users/NFlex23#comments">the owner's Scratch profile</a>
+    asking on <a href="https://scratch.mit.edu/users/NFlex23#comments">the owner's Scratch profile</a>
   </p>
 </div>
