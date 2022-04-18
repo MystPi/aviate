@@ -26,7 +26,7 @@
     const privateCode = urlParams.get('privateCode');
 
     const base64 = btoa(location.host + '/login');
-    link = `https://auth.itinerary.eu.org/auth/?redirect=${base64}`;
+    link = `https://auth.itinerary.eu.org/auth/?redirect=${base64}&name=Aviate`;
 
     if (privateCode) {
       promise = fetch('/auth/verify', {
