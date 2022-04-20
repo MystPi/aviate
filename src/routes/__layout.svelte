@@ -30,7 +30,7 @@
   });
   
   console.log("%cStop!","color: #F00; font-size: 30px; -webkit-text-stroke: 1px black; font-weight:bold")
-  console.log("This portion of your browser is intended for devlopers! If you do not know what you are doing do not use this. This could let people change your Status or do other Malicious Things.")
+  console.log("This portion of your browser is intended for devlopers! If someone told you to copy-and-paste something here, don't do it! Doing that could allow them to change your status or do other malicious things.")
 
 </script>
 
