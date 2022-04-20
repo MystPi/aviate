@@ -4,7 +4,9 @@ import { parse } from 'cookie';
 
 
 export async function get({ params, url }) {
-  const user = await getUserByUsername(params.username);
+  // This API endpoint is case-insensitive; therefore, 'false' is passed
+  // to the getUserByUsername function.
+  const user = await getUserByUsername(params.username, false);
 
   if (!user) {
     return {

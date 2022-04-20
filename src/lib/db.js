@@ -13,8 +13,14 @@ async function getData(table, type, gotten) {
 }
 
 
-export async function getUserByUsername(username) {
-  const user = await getData('users', 'username', username);
+export async function getUserByUsername(username, sensitive = true) {
+  let user;
+
+  if (sensitive) {
+    user = await getData('users', 'username', username);
+  } else {
+    user = await supabase.from('users').select().ilike('username', username);
+  }
 
   if (!user.data?.length) return Promise.resolve(null);
 
