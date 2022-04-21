@@ -28,6 +28,10 @@
     window.feedbackfin = { config: {}, ...window.feedbackfin };
     window.feedbackfin.config.url = '/backend/feedback';
   });
+  
+  console.log("%cStop!","color: #F00; font-size: 30px; -webkit-text-stroke: 1px black; font-weight:bold")
+  console.log("This portion of your browser is intended for devlopers! If someone told you to copy-and-paste something here, don't do it! Doing that could allow them to change your status or do other malicious things.")
+
 </script>
 
 <svelte:head>
