@@ -68,8 +68,8 @@ export async function post({ params, request }) {
     status = '';
   }
 
-  // Statuses are limited to 150 characters
-  if (status.length > 150) {
+  // Statuses are limited to 200 characters
+  if (status.length > 200) {
     return {
       status: 400
     };

@@ -78,8 +78,8 @@
   <h6>
     Set your status
     <Loader promise={promise}></Loader>
-    <span class="tag is-rounded is-{status.length >= 140 ? 'warning' : 'white'}">
-      {status.length}/150
+    <span class="tag is-rounded is-{status.length >= 190 ? 'warning' : 'white'}">
+      {status.length}/200
     </span>
   </h6>
   <div class="field is-grouped">
@@ -89,7 +89,7 @@
         bind:value={status}
         class="input is-family-monospace"
         placeholder="Tell people what you're doing, what you're into... anything really."
-        maxlength="150"/>
+        maxlength="200"/>
     </div>
     <div class="control buttons has-addons">
       <button on:click={testStatus} class="button">Test</button>
