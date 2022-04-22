@@ -19,10 +19,36 @@ const forums = {
 };
 
 
+const categories = [
+  'loves',
+  'favorites',
+  'comments',
+  'views',
+  'followers',
+  'following'
+];
+
+
 class Token {
   constructor(type, value) {
     this.type = type;
     this.value = value;
+  }
+}
+
+
+class InvalidArgType extends Error {
+  constructor(...args) {
+    super(...args);
+    this.name = 'InvalidArgType';
+  }
+}
+
+
+class UnknownComponent extends Error {
+  constructor(...args) {
+    super(...args);
+    this.name = 'UnknownComponent';
   }
 }
 
@@ -138,7 +164,7 @@ function assertNumbers(args, amount) {
 
   args.forEach(arg => {
     if (typeof arg !== 'number') {
-      throw new TypeError('expected a number or another component that results in a number');
+      throw new InvalidArgType('expected a number or another component that results in a number');
     }
   });
 }
@@ -148,8 +174,8 @@ function assertCategory(args) {
   assertAmount(args, 1);
 
   args.forEach(arg => {
-    if (!['loves', 'favorites', 'comments', 'views', 'followers', 'following'].includes(arg.toLowerCase())) {
-      throw new TypeError('expected a category');
+    if (!categories.includes(arg)) {
+      throw new InvalidArgType('expected a category');
     }
   })
 }
@@ -159,8 +185,8 @@ function assertForum(args) {
   assertAmount(args, 1);
 
   args.forEach(arg => {
-    if (!forums.hasOwnProperty(arg.toLowerCase())) {
-      throw new TypeError('expected a forum');
+    if (!forums.hasOwnProperty(arg)) {
+      throw new InvalidArgType('expected a forum');
     }
   })
 }
@@ -172,7 +198,7 @@ function dataFromPath(data, path) {
 
   for (let p of path) {
     if (current[p] === undefined) {
-      throw new TypeError('the requested data is not available for this user right now');
+      throw new InvalidArgType('the requested data is not available for this user right now');
 
     }
     current = current[p];
@@ -188,7 +214,13 @@ export async function evaluate(parsed, data) {
       return parsed.value;
     } else {
       const name = parsed.name;
-      const args = parsed.args.map(evalVal);
+      const args = parsed.args.map(arg => {
+        const val = evalVal(arg);
+        if (typeof val === 'string') {
+          return val.toLowerCase();
+        }
+        return val;
+      });
 
       switch (name) {
         // General
@@ -213,13 +245,24 @@ export async function evaluate(parsed, data) {
             return dataFromPath(data, 'forumData.counts.total.count');
           }
           assertForum(args);
-          return dataFromPath(data, `forumData.counts.${forums[args[0].toLowerCase()]}.count`);
+          return dataFromPath(data, `forumData.counts.${forums[args[0]]}.count`);
         case 'rank':
-          assertCategory(args);
-          return dataFromPath(data, 'statistics.ranks.' + args[0].toLowerCase());
+          if (categories.includes(args[0])) {
+            return dataFromPath(data, 'statistics.ranks.' + args[0]);
+          } else {
+            try {
+              assertForum(args);
+            } catch (e) {
+              if (e instanceof InvalidArgType) {
+                throw new InvalidArgType('expected a category or a forum');
+              }
+              throw e;
+            }
+            return dataFromPath(data, `forumData.counts.${forums[args[0]]}.rank`);
+          }
         case 'stats':
           assertCategory(args);
-          return dataFromPath(data, 'statistics.ranks.' + args[0].toLowerCase());
+          return dataFromPath(data, 'statistics.ranks.' + args[0]);
 
         // Math
         case 'add':
@@ -252,7 +295,7 @@ export async function evaluate(parsed, data) {
           return Math.round((args[0] + Number.EPSILON) * (10 ** args[1])) / (10 ** args[1]);
 
         default:
-          throw new Error('unknown component: ' + name);
+          throw new UnknownComponent('unknown component: ' + name);
       }
     }
   }
@@ -292,6 +335,6 @@ export async function run(status, user) {
     const result = await evaluate(parse(tokenize(status)), data);
     return result.replace(/\n/g, ' ');
   } catch (e) {
-    return '[error] ' + e.message;
+    return `[${e.name}] ${e.message}`;
   }
 }

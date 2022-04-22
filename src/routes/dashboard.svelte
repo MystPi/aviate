@@ -181,8 +181,9 @@
     <li><code>{'{followers}'}</code> → amount of followers
     <li><code>{'{posts}'}</code> → total amount of forum posts
     <li><code>{'{'}posts <u>forum</u>}</code> → amount of forum posts in <code><u>forum</u></code>
-    <li><code>{'{'}rank <u>category</u>}</code> → rank in <code><u>category</u></code>
+    <li><code>{'{'}rank <u>forum</u>}</code> → rank in <code><u>forum</u></code>
     <li><code>{'{'}stats <u>category</u>}</code> → number of <code><u>category</u></code>
+    <li><code>{'{'}rank <u>category</u>}</code> → rank in <code><u>category</u></code>
   </ul>
   <h3>Math</h3>
   <ul>
