@@ -315,7 +315,7 @@ export async function run(status, user) {
       userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user, { signal: controller.signal }).then(res => res.json());
       forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user, { signal: controller.signal }).then(res => res.json());
 
-      clearTimeout(id);
+      // clearTimeout(id);
     } catch (e) {
       // if (e.name === 'AbortError') throw new Error('ScratchDB is not available right now, check back later');
       userData = {};
