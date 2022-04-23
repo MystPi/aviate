@@ -305,10 +305,9 @@ export async function evaluate(parsed, data) {
 
 
 async function fetchWithTimeout(resource, options = {}) {
-  const { timeout = 5000 } = options;
-
   const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), timeout);
+  // Vercel's timeout is 10 seconds, so to be safe, this is 5 seconds
+  const id = setTimeout(() => controller.abort(), 5000);
   const response = await fetch(resource, {
     ...options,
     signal: controller.signal
@@ -323,19 +322,16 @@ export async function run(status, user) {
     let userData, forumData, joke;
 
     try {
-      userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+      userData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+      forumData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
     } catch (e) {
+      // if (e.name === 'AbortError') throw new Error('ScratchDB is not available right now, check back later');
       userData = {};
-    }
-
-    try {
-      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
-    } catch (e) {
       forumData = {};
     }
 
     try {
-      joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
+      joke = await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
     } catch (e) {
       joke = '[joke couldn\'t be fetched]';
     }
