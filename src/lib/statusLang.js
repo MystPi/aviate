@@ -323,19 +323,19 @@ export async function run(status, user) {
     let userData, forumData, joke;
 
     try {
-      userData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+      userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
     } catch (e) {
       userData = {};
     }
 
     try {
-      forumData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
+      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
     } catch (e) {
       forumData = {};
     }
 
     try {
-      joke = await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
+      joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
     } catch (e) {
       joke = '[joke couldn\'t be fetched]';
     }
