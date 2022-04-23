@@ -304,24 +304,38 @@ export async function evaluate(parsed, data) {
 }
 
 
+async function fetchWithTimeout(resource, options = {}) {
+  const { timeout = 5000 } = options;
+
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  const response = await fetch(resource, {
+    ...options,
+    signal: controller.signal
+  });
+  clearTimeout(id);
+  return response;
+}
+
+
 export async function run(status, user) {
   try {
     let userData, forumData, joke;
 
     try {
-      userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+      userData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
     } catch (e) {
       userData = {};
     }
 
     try {
-      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
+      forumData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
     } catch (e) {
       forumData = {};
     }
 
     try {
-      joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
+      joke = await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
     } catch (e) {
       joke = '[joke couldn\'t be fetched]';
     }
@@ -335,6 +349,6 @@ export async function run(status, user) {
     const result = await evaluate(parse(tokenize(status)), data);
     return result.replace(/\n/g, ' ');
   } catch (e) {
-    return `[${e.name}] ${e.message}`;
+    return `[error] ${e.message}`;
   }
 }
