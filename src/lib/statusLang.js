@@ -309,16 +309,14 @@ export async function run(status, user) {
     let userData, forumData, joke;
 
     try {
-      const controller = new AbortController();
-      // const id = setTimeout(() => controller.abort(), 5000);
-
       userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
-      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
-
-      // clearTimeout(id);
     } catch (e) {
-      // if (e.name === 'AbortError') throw new Error('ScratchDB is not available right now, check back later');
       userData = {};
+    }
+
+    try {
+      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
+    } catch (e) {
       forumData = {};
     }
 
