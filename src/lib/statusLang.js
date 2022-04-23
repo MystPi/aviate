@@ -310,7 +310,7 @@ export async function run(status, user) {
 
     try {
       const controller = new AbortController();
-      const id = setTimeout(() => controller.abort(), 5000);
+      // const id = setTimeout(() => controller.abort(), 5000);
 
       userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user, { signal: controller.signal }).then(res => res.json());
       forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user, { signal: controller.signal }).then(res => res.json());
