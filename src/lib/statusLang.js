@@ -331,13 +331,9 @@ export async function run(status, user) {
 
     try {
       userData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/user/info/' + user);
-    } catch (e) {
-      userData = {};
-    }
-
-    try {
       forumData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/forum/user/info/' + user);
     } catch (e) {
+      userData = {};
       forumData = {};
     }
 
