@@ -19,5 +19,8 @@
     "svelte-preprocess": "^4.10.1",
     "uuid": "^8.3.2"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "node-abort-controller": "^3.0.1"
+  }
 }

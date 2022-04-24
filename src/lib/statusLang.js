@@ -1,3 +1,6 @@
+import { AbortController } from 'node-abort-controller';
+
+
 const forums = {
   total: 'total',
   sat: 'Show and Tell',
@@ -304,24 +307,42 @@ export async function evaluate(parsed, data) {
 }
 
 
+async function fetchWithTimeout(url = '') {
+  const controller = new AbortController();
+  const { signal } = controller;
+
+  const timeout = setTimeout(() => {
+    controller.abort();
+  }, 5000);
+
+  const req = await fetch(url, { signal });
+
+  clearTimeout(timeout);
+
+  const result = await req.json();
+
+  return result;
+};
+
+
 export async function run(status, user) {
   try {
     let userData, forumData, joke;
 
     try {
-      userData = await fetch('https://scratchdb.lefty.one/v3/user/info/' + user).then(res => res.json());
+      userData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/user/info/' + user);
     } catch (e) {
       userData = {};
     }
 
     try {
-      forumData = await fetch('https://scratchdb.lefty.one/v3/forum/user/info/' + user).then(res => res.json());
+      forumData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/forum/user/info/' + user);
     } catch (e) {
       forumData = {};
     }
 
     try {
-      joke = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single').then(res => res.text());
+      joke = await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single');
     } catch (e) {
       joke = '[joke couldn\'t be fetched]';
     }
