@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-  <title>View a user's status - Aviate</title>
+  <title>View {user}'s Status - Aviate</title>
 </svelte:head>
 
 <Header>
