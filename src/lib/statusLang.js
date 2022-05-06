@@ -180,7 +180,7 @@ function assertCategory(args) {
     if (!categories.includes(arg)) {
       throw new InvalidArgType('expected a category');
     }
-  })
+  });
 }
 
 
@@ -191,7 +191,7 @@ function assertForum(args) {
     if (!forums.hasOwnProperty(arg)) {
       throw new InvalidArgType('expected a forum');
     }
-  })
+  });
 }
 
 
@@ -202,7 +202,6 @@ function dataFromPath(data, path) {
   for (let p of path) {
     if (current[p] === undefined) {
       throw new InvalidArgType('the requested data is not available for this user right now');
-
     }
     current = current[p];
   }
