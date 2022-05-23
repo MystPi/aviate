@@ -337,7 +337,7 @@ export async function run(status, user) {
     }
 
     try {
-      joke = await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single');
+      joke = (await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json&type=single')).joke;
     } catch (e) {
       joke = '[joke couldn\'t be fetched]';
     }
