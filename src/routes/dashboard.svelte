@@ -187,6 +187,7 @@
   </ul>
   <h3>Math</h3>
   <ul>
+    <li><code>{'{'}percent <u>a (number)</u> <u>b (number)</u>}</code> → find what percent <code><u>a</u></code> is of <code><u>b</u></code>, e.g. <code>{'{'}percent 1 2}</code> → <code>50</code>
     <li><code>{'{'}add <u>a (number)</u> <u>b (number)</u> ...}</code> → add all of the arguments
     <li><code>{'{'}sub <u>a (number)</u> <u>b (number)</u> ...}</code> → subtract all of the arguments
     <li><code>{'{'}mul <u>a (number)</u> <u>b (number)</u> ...}</code> → multiply all of the arguments
@@ -203,7 +204,7 @@
     <li><code>If you add 3 and 4, then multiple that by two, you get {'{mul {add 3 4} 2}'}</code>
     <li><code>Here's a funny joke: {'{joke}'}</code>
     <li><code>Think of a number between 1 and 10. What is {'{random 1 10}'}? If so, you got it right!</code>
-    <li><code>{'I have {posts} forum posts, with {round {mul {div {posts at} {posts}} 100} 1}% of them in the ATs.'}</code>
+    <li><code>{'I have {posts} forum posts, with {round {percent {posts at} {posts}} 1}% of them in the ATs.'}</code>
   </ul>
 </div>
 

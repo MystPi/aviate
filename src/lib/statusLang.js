@@ -1,6 +1,5 @@
 import { AbortController } from 'node-abort-controller';
 
-
 const forums = {
   total: 'total',
   sat: 'Show and Tell',
@@ -16,11 +15,10 @@ const forums = {
   bag: 'Bugs and Glitches',
   pi: 'Project Ideas',
   osp: 'Open Source Projects',
-  timac: 'Things I\'m Making and Creating',
-  tirap: 'Things I\'m Reading and Playing',
-  cthpw: 'Connecting to the Physical World'
+  timac: "Things I'm Making and Creating",
+  tirap: "Things I'm Reading and Playing",
+  cthpw: 'Connecting to the Physical World',
 };
-
 
 const categories = [
   'loves',
@@ -28,9 +26,8 @@ const categories = [
   'comments',
   'views',
   'followers',
-  'following'
+  'following',
 ];
-
 
 class Token {
   constructor(type, value) {
@@ -39,7 +36,6 @@ class Token {
   }
 }
 
-
 class InvalidArgType extends Error {
   constructor(...args) {
     super(...args);
@@ -47,14 +43,12 @@ class InvalidArgType extends Error {
   }
 }
 
-
 class UnknownComponent extends Error {
   constructor(...args) {
     super(...args);
     this.name = 'UnknownComponent';
   }
 }
-
 
 function tokenize(string) {
   const tokens = [];
@@ -96,25 +90,25 @@ function tokenize(string) {
   return tokens;
 }
 
-
 function findValue(string) {
   if (/^-?\d+(\.\d+)?$/.test(string.trim())) {
     return {
       type: 'number',
-      value: Number(string)
+      value: Number(string),
     };
   } else {
     return {
       type: 'string',
-      value: string
+      value: string,
     };
   }
 }
 
-
 function parseValue(tokens) {
   if (tokens.length === 0) {
-    throw new SyntaxError('unexpected end of status, did you miss a closing bracket?');
+    throw new SyntaxError(
+      'unexpected end of status, did you miss a closing bracket?'
+    );
   }
 
   const token = tokens.shift();
@@ -125,7 +119,7 @@ function parseValue(tokens) {
     const value = {
       type: 'function',
       name: tokens.shift().value,
-      args: []
+      args: [],
     };
 
     while (tokens.length > 0 && tokens[0].type !== '}') {
@@ -143,7 +137,6 @@ function parseValue(tokens) {
   }
 }
 
-
 function parse(tokens) {
   const ret = [];
 
@@ -154,46 +147,43 @@ function parse(tokens) {
   return ret;
 }
 
-
 function assertAmount(args, amount = null) {
   if (amount !== null && args.length !== amount) {
     throw new SyntaxError(`expected ${amount} arguments, got ${args.length}`);
   }
 }
 
-
 function assertNumbers(args, amount) {
   assertAmount(args, amount);
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     if (typeof arg !== 'number') {
-      throw new InvalidArgType('expected a number or another component that results in a number');
+      throw new InvalidArgType(
+        'expected a number or another component that results in a number'
+      );
     }
   });
 }
 
-
 function assertCategory(args) {
   assertAmount(args, 1);
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     if (!categories.includes(arg)) {
       throw new InvalidArgType('expected a category');
     }
   });
 }
 
-
 function assertForum(args) {
   assertAmount(args, 1);
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     if (!forums.hasOwnProperty(arg)) {
       throw new InvalidArgType('expected a forum');
     }
   });
 }
-
 
 function dataFromPath(data, path) {
   path = path.split('.');
@@ -201,7 +191,9 @@ function dataFromPath(data, path) {
 
   for (let p of path) {
     if (current[p] === undefined) {
-      throw new InvalidArgType('the requested data is not available for this user right now');
+      throw new InvalidArgType(
+        'the requested data is not available for this user right now'
+      );
     }
     current = current[p];
   }
@@ -209,14 +201,13 @@ function dataFromPath(data, path) {
   return current;
 }
 
-
 export async function evaluate(parsed, data) {
   function evalVal(parsed) {
     if (parsed.type === 'number' || parsed.type === 'string') {
       return parsed.value;
     } else {
       const name = parsed.name;
-      const args = parsed.args.map(arg => {
+      const args = parsed.args.map((arg) => {
         const val = evalVal(arg);
         if (typeof val === 'string') {
           return val.toLowerCase();
@@ -247,7 +238,10 @@ export async function evaluate(parsed, data) {
             return dataFromPath(data, 'forumData.counts.total.count');
           }
           assertForum(args);
-          return dataFromPath(data, `forumData.counts.${forums[args[0]]}.count`);
+          return dataFromPath(
+            data,
+            `forumData.counts.${forums[args[0]]}.count`
+          );
         case 'rank':
           if (categories.includes(args[0])) {
             return dataFromPath(data, 'statistics.ranks.' + args[0]);
@@ -260,7 +254,10 @@ export async function evaluate(parsed, data) {
               }
               throw e;
             }
-            return dataFromPath(data, `forumData.counts.${forums[args[0]]}.rank`);
+            return dataFromPath(
+              data,
+              `forumData.counts.${forums[args[0]]}.rank`
+            );
           }
         case 'stats':
           assertCategory(args);
@@ -288,13 +285,19 @@ export async function evaluate(parsed, data) {
         case 'random':
           assertNumbers(args, 2);
           return Math.floor(Math.random() * (args[1] - args[0] + 1)) + args[0];
+        case 'percent':
+          assertNumbers(args, 2);
+          return (args[0] / args[1]) * 100;
         case 'round':
           if (args.length === 1) {
             assertNumbers(args, 1);
             return Math.round(args[0]);
           }
           assertNumbers(args, 2);
-          return Math.round((args[0] + Number.EPSILON) * (10 ** args[1])) / (10 ** args[1]);
+          return (
+            Math.round((args[0] + Number.EPSILON) * 10 ** args[1]) /
+            10 ** args[1]
+          );
 
         default:
           throw new UnknownComponent('unknown component: ' + name);
@@ -304,7 +307,6 @@ export async function evaluate(parsed, data) {
 
   return parsed.map(evalVal).join('');
 }
-
 
 async function fetchWithTimeout(url = '') {
   const controller = new AbortController();
@@ -321,31 +323,36 @@ async function fetchWithTimeout(url = '') {
   const result = await req.json();
 
   return result;
-};
-
+}
 
 export async function run(status, user) {
   try {
     let userData, forumData, joke;
 
     try {
-      userData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/user/info/' + user);
-      forumData = await fetchWithTimeout('https://scratchdb.lefty.one/v3/forum/user/info/' + user);
+      userData = await fetchWithTimeout(
+        'https://scratchdb.lefty.one/v3/user/info/' + user
+      );
+      forumData = await fetchWithTimeout(
+        'https://scratchdb.lefty.one/v3/forum/user/info/' + user
+      );
     } catch (e) {
       userData = {};
       forumData = {};
     }
 
     try {
-      joke = await fetchWithTimeout('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single');
+      joke = await fetchWithTimeout(
+        'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single'
+      );
     } catch (e) {
-      joke = '[joke couldn\'t be fetched]';
+      joke = "[joke couldn't be fetched]";
     }
 
     const data = {
       ...userData,
       forumData,
-      joke
+      joke,
     };
 
     const result = await evaluate(parse(tokenize(status)), data);
