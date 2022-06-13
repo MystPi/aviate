@@ -167,37 +167,60 @@
     us make Aviate better for you and everyone else. 😊
   </p>
   <h3>General</h3>
-  <ul>
-    <li><code>{'{username}'}</code> → your username
-    <li><code>{'{id}'}</code> → your ID
-    <li><code>{'{country}'}</code> → your country
-    <li><code>{'{status}'}</code> → your rank, eg. "Scratcher"
-    <li><code>{'{bio}'}</code> → your "About Me"
-    <li><code>{'{work}'}</code> → your "What I'm Working On"
-    <li><code>{'{joke}'}</code> → a randomly generated programming joke
-  </ul>
+  <dl>
+    <dt><code>{'{username}'}</code></dt>
+      <dd>your username</dd>
+    <dt><code>{'{id}'}</code></dt>
+      <dd>your ID</dd>
+    <dt><code>{'{country}'}</code></dt>
+      <dd>your country</dd>
+    <dt><code>{'{status}'}</code></dt>
+      <dd>your rank, eg. "Scratcher"</dd>
+    <dt><code>{'{bio}'}</code></dt>
+      <dd>your "About Me"</dd>
+    <dt><code>{'{work}'}</code></dt>
+      <dd>your "What I'm Working On"</dd>
+    <dt><code>{'{joke}'}</code></dt>
+      <dd>a randomly generated programming joke</dd>
+  </dl>
   <h3>Statistics</h3>
-  <ul>
-    <li><code>{'{followers}'}</code> → amount of followers
-    <li><code>{'{posts}'}</code> → total amount of forum posts
-    <li><code>{'{'}posts <u>forum</u>}</code> → amount of forum posts in <code><u>forum</u></code>
-    <li><code>{'{'}rank <u>forum</u>}</code> → rank in <code><u>forum</u></code>
-    <li><code>{'{'}stats <u>category</u>}</code> → number of <code><u>category</u></code>
-    <li><code>{'{'}rank <u>category</u>}</code> → rank in <code><u>category</u></code>
-  </ul>
+  <dl>
+    <dt><code>{'{followers}'}</code></dt>
+      <dd>amount of followers</dd>
+    <dt><code>{'{posts}'}</code></dt>
+      <dd>total amount of forum posts</dd>
+    <dt><code>{'{'}posts <u>forum</u>}</code></dt>
+      <dd>amount of forum posts in <code><u>forum</u></code></dd>
+    <dt><code>{'{'}rank <u>forum</u>}</code></dt>
+      <dd>rank in <code><u>forum</u></code></dd>
+    <dt><code>{'{'}stats <u>category</u>}</code></dt>
+      <dd>number of <code><u>category</u></code></dd>
+    <dt><code>{'{'}rank <u>category</u>}</code></dt>
+      <dd>rank in <code><u>category</u></code></dd>
+  </dl>
   <h3>Math</h3>
-  <ul>
-    <li><code>{'{'}percent <u>a (number)</u> <u>b (number)</u>}</code> → find what percent <code><u>a</u></code> is of <code><u>b</u></code>, e.g. <code>{'{'}percent 1 2}</code> → <code>50</code>
-    <li><code>{'{'}add <u>a (number)</u> <u>b (number)</u> ...}</code> → add all of the arguments
-    <li><code>{'{'}sub <u>a (number)</u> <u>b (number)</u> ...}</code> → subtract all of the arguments
-    <li><code>{'{'}mul <u>a (number)</u> <u>b (number)</u> ...}</code> → multiply all of the arguments
-    <li><code>{'{'}div <u>a (number)</u> <u>b (number)</u> ...}</code> → divide all of the arguments
-    <li><code>{'{'}pow <u>a (number)</u> <u>b (number)</u>}</code> → raise <code><u>a</u></code> to the power of <code><u>b</u></code>
-    <li><code>{'{'}root <u>a (number)</u> <u>b (number)</u>}</code> → find the <code><u>b</u></code>th root of <code><u>a</u></code>
-    <li><code>{'{'}random <u>a (number)</u> <u>b (number)</u>}</code> → generate a random number between <code><u>a</u></code> and <code><u>b</u></code>
-    <li><code>{'{'}round <u>number</u>}</code> → rounds <code><u>number</u></code> to the nearest integer
-    <li><code>{'{'}round <u>a (number)</u> <u>b (number)</u>}</code> → rounds <code><u>a</u></code> to the nearest <code><u>b</u></code> decimal places
-  </ul>
+  <dl>
+    <dt><code>{'{'}percent <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>find what percent <code><u>a</u></code> is of <code><u>b</u></code>, e.g. <code>{'{'}percent 1 2}</code> <code>50</code></dd>
+    <dt><code>{'{'}add <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
+      <dd>add all of the arguments</dd>
+    <dt><code>{'{'}sub <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
+      <dd>subtract all of the arguments</dd>
+    <dt><code>{'{'}mul <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
+      <dd>multiply all of the arguments</dd>
+    <dt><code>{'{'}div <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
+      <dd>divide all of the arguments</dd>
+    <dt><code>{'{'}pow <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>raise <code><u>a</u></code> to the power of <code><u>b</u></code></dd>
+    <dt><code>{'{'}root <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>find the <code><u>b</u></code>th root of <code><u>a</u></code></dd>
+    <dt><code>{'{'}random <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>generate a random number between <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}round <u>number</u>}</code></dt>
+      <dd>rounds <code><u>number</u></code> to the nearest integer</dd>
+    <dt><code>{'{'}round <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>rounds <code><u>a</u></code> to the nearest <code><u>b</u></code> decimal places</dd>
+  </dl>
   <h3>Examples</h3>
   <ul>
     <li><code>I have {'{followers}'} followers on Scratch!</code>
@@ -211,5 +234,9 @@
 <style>
   summary {
     cursor: pointer;
+  }
+
+  dd {
+    margin-bottom: 0.75rem;
   }
 </style>
