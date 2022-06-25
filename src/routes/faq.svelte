@@ -68,11 +68,11 @@
     at the top of the page then click 'other' and report the status.
   </p>
 
-  <h3>Will there be Scratch integration?</h3>
+  <h3>Is there Scratch integration?</h3>
   <p>
-    Hopefully! A browser extension or nono word addon is planned, so stay tuned. Please note that
-    due to Scratch's browser extension policy, the extension/addon will not be linked
-    here; instead, you will be able to find it on GitHub (mystpi/aviate-extension) once it's ready.
+    Yes! There is now a browser extension that does just that. Please note that
+    due to Scratch's browser extension policy, the extension will not be linked
+    here; instead, you can find it on GitHub at MystPi/aviate-integration.
   </p>
 
   <h3>How do I become an admin?</h3>
