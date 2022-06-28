@@ -120,10 +120,6 @@
     z-index: -1;
   }
 
-  :global(html) {
-    scroll-behavior: smooth;
-  }
-
   @keyframes up-to-down {
     from {
       top: 0;
