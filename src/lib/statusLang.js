@@ -51,6 +51,13 @@ class UnknownComponent extends Error {
   }
 }
 
+class TooManyJokes extends Error {
+  constructor(...args) {
+    super(...args);
+    this.name = 'TooManyJokes';
+  }
+}
+
 function tokenize(string) {
   const tokens = [];
   let current = '';
@@ -203,6 +210,8 @@ function dataFromPath(data, path) {
 }
 
 export async function evaluate(parsed, data) {
+  let existingJoke = false;
+
   function evalVal(parsed) {
     if (parsed.type === 'number' || parsed.type === 'string') {
       return parsed.value;
@@ -227,6 +236,12 @@ export async function evaluate(parsed, data) {
           assertAmount(args, 0);
           return dataFromPath(data, name);
         case 'joke':
+          if (existingJoke) {
+            throw new TooManyJokes(
+              'only one joke component is allowed in your status'
+            );
+          }
+          existingJoke = true;
           assertAmount(args, 0);
           return data.joke;
 
