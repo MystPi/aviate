@@ -1,4 +1,5 @@
 import { AbortController } from 'node-abort-controller';
+import jokes from './jokes';
 
 const forums = {
   total: 'total',
@@ -327,7 +328,7 @@ async function fetchWithTimeout(url = '') {
 
 export async function run(status, user) {
   try {
-    let userData, forumData, joke;
+    let userData, forumData;
 
     try {
       userData = await fetchWithTimeout(
@@ -341,15 +342,7 @@ export async function run(status, user) {
       forumData = {};
     }
 
-    try {
-      joke = (
-        await fetchWithTimeout(
-          'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json&type=single'
-        )
-      ).joke;
-    } catch (e) {
-      joke = "[joke couldn't be fetched]";
-    }
+    const joke = jokes[Math.floor(Math.random() * jokes.length)];
 
     const data = {
       ...userData,
