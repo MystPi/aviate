@@ -181,7 +181,7 @@
     <dt><code>{'{work}'}</code></dt>
       <dd>your "What I'm Working On"</dd>
     <dt><code>{'{joke}'}</code></dt>
-      <dd>a randomly generated programming joke</dd>
+      <dd>a randomly generated programming joke <i>(limit of one in your status)</i></dd>
   </dl>
   <h3>Statistics</h3>
   <dl>
