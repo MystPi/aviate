@@ -93,17 +93,13 @@
     </div>
   </nav>
 
-  <main id="content" class="mx-auto mt-7">
+  <main class="mt-7">
     <slot/>
   </main>
 </div>
 
 <style>
   #container {
-    max-width: 60rem;
-  }
-
-  #content {
     max-width: 60rem;
   }
 
@@ -122,6 +118,10 @@
   .blob {
     position: fixed;
     z-index: -1;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
   }
 
   @keyframes up-to-down {
