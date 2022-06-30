@@ -28,11 +28,18 @@
   export let users;
   export let feedback;
 
+  let filter = '';
+  let filtered;
   let setUsername;
   let setPromise;
   let feedbackPromise;
   let status;
   let mode = 'username';
+
+  $: filtered = users.filter((u) =>
+    u.username.toLowerCase().indexOf(filter.toLowerCase()) !== -1 ||
+    u.status.toLowerCase().indexOf(filter.toLowerCase()) !== -1
+  )
 
   function setStatus() {
     setPromise = fetch('/api/' + setUsername, {
@@ -75,6 +82,12 @@
 
 <div class="content">
   <div class="box">
+    <h6>Filter the table</h6>
+    <div class="field is-grouped">
+      <div class="control is-expanded">
+        <input bind:value={filter} class="input" type="text" placeholder="Works on the username and status fields">
+      </div>
+    </div>
     <h6>Set a status <Loader promise={setPromise}></Loader></h6>
     <div class="field is-grouped">
       <div class="control is-expanded">
@@ -105,7 +118,7 @@
           <th>Admin</th>
         </thead>
         <tbody>
-          {#each users as u}
+          {#each filtered as u}
             <tr>
               <td><a href="https://scratch.mit.edu/users/{u.username}">{u.username}</a></td>
               <td><code>{u.status}</code></td>
