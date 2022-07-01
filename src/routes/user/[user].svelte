@@ -1,6 +1,15 @@
 <script context="module">
   export async function load({ params, fetch }) {
-    const status = await fetch('/api/' + params.user).then(res => res.json());
+    const res = await fetch('/api/' + params.user);
+
+    if (res.status === 404) {
+      return {
+        status: 404,
+        error: `User not found: ${params.user}`,
+      };
+    }
+
+    const status = await res.json();
 
     return {
       props: {
