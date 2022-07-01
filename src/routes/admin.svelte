@@ -52,7 +52,7 @@
 
   function getDate(ts) {
     const date = new Date(ts);
-    return  date.toLocaleTimeString() + ' on ' + date.toLocaleDateString();
+    return date.toLocaleTimeString() + ' on ' + date.toLocaleDateString();
   }
 
   function deleteFeedback(ts) {
@@ -83,7 +83,7 @@
 <div class="content">
   <div class="box">
     <h6>Filter the table</h6>
-    <div class="field is-grouped">
+    <div class="field">
       <div class="control is-expanded">
         <input bind:value={filter} class="input" type="text" placeholder="Works on the username and status fields">
       </div>

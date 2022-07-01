@@ -1,5 +1,8 @@
 <script>
   import Header from '$lib/components/Header.svelte';
+  import { goto } from '$app/navigation';
+
+  let usernameForSearch = '';
 </script>
 
 <svelte:head>
@@ -23,6 +26,15 @@
 </div>
 
 <div class="content">
+  <h2 id="findastatus">Find a status</h2>
+  <div class="field is-grouped">
+    <div class="control is-expanded">
+      <input bind:value={usernameForSearch} type="text" class="input" placeholder="Enter a username here...">
+    </div>
+    <div class="control">
+      <button on:click={() => goto(`/user/${usernameForSearch}`)} class="button is-dark">Go</button>
+    </div>
+  </div>
   <h2 id="about">How does Aviate work?</h2>
   <h3>1. Log in</h3>
   <p>
