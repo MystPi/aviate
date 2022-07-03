@@ -28,8 +28,20 @@ export async function get({ params, url }) {
         success: true
       }
     };
+  } else if (url.searchParams.get('style') === 'true') {
+    let result = await run(user.status, user.username);
+    result = parseMarkdown(result, false)
+    return {
+      status: 200,
+      body: {
+        username: user.username,
+        status: user.status,
+        success: true
+      }
+    };
   } else {
-    const result = await run(user.status, user.username);
+    let result = await run(user.status, user.username);
+    result = parseMarkdown(result, true)
 
     return {
       status: 200,
@@ -100,4 +112,26 @@ export async function post({ params, request }) {
   return {
     status: 401
   };
+}
+
+function parseMarkdown(parseText, remove) {
+  var rules = [
+    //bold, italics and underline rules
+    [/\*\*\s?([^\n]+)\*\*/g, (remove ? "" : "<b>$1</b>")],
+    [/__([^_]+)__/g, (remove ? "" : "<u>$1</u>")],
+    [/_([^_`]+)_/g, (remove ? "" : "<i>$1</i>")],
+    [/\*\s?([^\n]+)\*/g, (remove ? "" : "<i>$1</i>")],
+    
+    //links
+    [
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      (remove ? "" : '<a href="$2">$1</a>'),
+    ],
+  ];
+  
+  rules.forEach(([rule, template]) => {
+    parseText = parseText.replace(rule, template)
+  })
+  parseText = parseText.replace( );
+  return parseText;
 }

@@ -49,6 +49,8 @@
       .then(res => statusOutput = res.result);
   }
 
+  async function parseMarkdown;
+
   onMount(() => {
     scratchDBPromise = fetch('https://scratchdb.lefty.one/v3/user/info/' + user.username);
   });
@@ -221,13 +223,23 @@
     <dt><code>{'{'}round <u>a (number)</u> <u>b (number)</u>}</code></dt>
       <dd>rounds <code><u>a</u></code> to the nearest <code><u>b</u></code> decimal places</dd>
   </dl>
+  <h3>Style Components</h3>
+  <p>
+    Aviate uses Markdown, a simple plain text formatting system that'll help you make your sentences <b>stand out</b>. Here's how to do it:
+  </p>
+  <dt><i>Italics</i> <code>*italics* or _italics_</code></dt>
+  <dt><b>Bold</b> <code>**bold**</code></dt>
+  <dt><u>Underline</b> <code>__underline__</code></dt>
+  <dt><a>Link</b> <code>[link](https://scratch.mit.edu)</code></dt>
+
   <h3>Examples</h3>
   <ul>
-    <li><code>I have {'{followers}'} followers on Scratch!</code>
-    <li><code>If you add 3 and 4, then multiple that by two, you get {'{mul {add 3 4} 2}'}</code>
-    <li><code>Here's a funny joke: {'{joke}'}</code>
+    <li><code>I have **{'{followers}'}** followers on Scratch!</code>
+    <li><code>If you add 3 and 4, then multiple that by two, you get __{'{mul {add 3 4} 2}'}__</code>
+    <li><code>Here's a funny joke: *{'{joke}'}*</code>
     <li><code>Think of a number between 1 and 10. What is {'{random 1 10}'}? If so, you got it right!</code>
     <li><code>{'I have {posts} forum posts, with {round {percent {posts at} {posts}} 1}% of them in the ATs.'}</code>
+    <li><code>[Totally Not Rickroll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)</code>
   </ul>
 </div>
 
