@@ -49,8 +49,6 @@
       .then(res => statusOutput = res.result);
   }
 
-  async function parseMarkdown;
-
   onMount(() => {
     scratchDBPromise = fetch('https://scratchdb.lefty.one/v3/user/info/' + user.username);
   });
