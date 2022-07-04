@@ -44,9 +44,12 @@
       })
     });
 
-    promise
-      .then(res => res.json())
-      .then(res => statusOutput = res.result);
+    statusOutput = (await (await promise).json()).result;
+  }
+
+  async function importStatus() {
+    promise = fetch(`https://my-ocular.jeffalo.net/api/user/${user.username}?noReplace=true`);
+    status = (await (await promise).json()).status.replace(/{count}/g, '{posts}');
   }
 
   onMount(() => {
@@ -75,13 +78,24 @@
     {/await}
   {/if}
 
-  <h6>
-    Set your status
-    <Loader promise={promise}></Loader>
-    <span class="tag is-rounded is-{status.length >= 190 ? 'warning' : 'white'}">
-      {status.length}/200
-    </span>
-  </h6>
+  <div class="level is-mobile mb-0">
+    <div class="level-left">
+      <h6>
+        Set your status
+        <Loader promise={promise}></Loader>
+        <span class="tag is-rounded is-{status.length >= 190 ? 'warning' : 'white'}">
+          {status.length}/200
+        </span>
+      </h6>
+    </div>
+    <div class="level-right">
+      <button
+        on:click={importStatus}
+        class="button is-small is-text"
+        title="Import your status from ocular">
+        Import</button>
+    </div>
+  </div>
   <div class="field is-grouped">
     <div class="control is-expanded">
       <input
