@@ -182,6 +182,10 @@
       <dd>your "What I'm Working On"</dd>
     <dt><code>{'{joke}'}</code></dt>
       <dd>a randomly generated programming joke <i>(limit of one in your status)</i></dd>
+    <dt><code>{'{open}'}</code></dt>
+      <dd>a literal <code>{'{'}</code></dd>
+    <dt><code>{'{close}'}</code></dt>
+      <dd>a literal <code>}</code></dd>
   </dl>
   <h3>Statistics</h3>
   <dl>

@@ -244,6 +244,12 @@ export async function evaluate(parsed, data) {
           existingJoke = true;
           assertAmount(args, 0);
           return data.joke;
+        case 'open':
+          assertAmount(args, 0);
+          return '{';
+        case 'close':
+          assertAmount(args, 0);
+          return '}';
 
         // Statistics
         case 'followers':
