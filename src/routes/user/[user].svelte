@@ -1,6 +1,6 @@
 <script context="module">
-  export async function load({ params, fetch }) {
-    const res = await fetch('/api/' + params.user);
+  export async function load({ params, fetch, session }) {
+    const res = await fetch(`/api/${params.user}${session?.user ? '?visitor=' + session?.user?.username : ''}`);
 
     if (res.status === 404) {
       return {

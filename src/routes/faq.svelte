@@ -23,7 +23,9 @@
   <h3>What is the endpoint for fetching a user's status?</h3>
   <p>
     Send a <code>GET</code> request to <code>/api/[user]</code>, replacing
-    <code>[user]</code> with a username.
+    <code>[user]</code> with a username. If you want the <code>{'{visitor}'}</code>
+    component to return a username, also add <code>?visitor=your_username</code>
+    to the end.
   </p>
 
   <h3>What is the endpoint for fetching the code of a status?</h3>
