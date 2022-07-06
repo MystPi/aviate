@@ -2,6 +2,7 @@ import { getUserFromCookies } from '$lib/db';
 import { run } from '$lib/statusLang';
 import { parse } from 'cookie';
 
+
 export async function post({ request }) {
   let status;
 
@@ -11,7 +12,7 @@ export async function post({ request }) {
     if (status === undefined) return { status: 400 };
   } catch (e) {
     return {
-      status: 400,
+      status: 400
     };
   }
 
@@ -19,17 +20,17 @@ export async function post({ request }) {
   const user = await getUserFromCookies(cookies);
 
   if (user) {
-    const result = await run(status, user.username, user.username);
+    const result = await run(status, user.username);
 
     return {
       status: 200,
       body: {
-        result,
-      },
+        result
+      }
     };
   }
 
   return {
-    status: 401,
+    status: 401
   };
 }

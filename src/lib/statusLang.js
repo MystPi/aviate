@@ -233,7 +233,6 @@ export async function evaluate(parsed, data) {
         case 'status':
         case 'bio':
         case 'work':
-        case 'visitor':
           assertAmount(args, 0);
           return dataFromPath(data, name);
         case 'joke':
@@ -348,7 +347,7 @@ async function fetchWithTimeout(url = '') {
   return result;
 }
 
-export async function run(status, user, visitor) {
+export async function run(status, user) {
   try {
     let userData, forumData;
 
@@ -370,7 +369,6 @@ export async function run(status, user, visitor) {
       ...userData,
       forumData,
       joke,
-      visitor,
     };
 
     const result = await evaluate(parse(tokenize(status)), data);

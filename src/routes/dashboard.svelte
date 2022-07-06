@@ -194,11 +194,6 @@
       <dd>your "About Me"</dd>
     <dt><code>{'{work}'}</code></dt>
       <dd>your "What I'm Working On"</dd>
-    <dt><code>{'{visitor}'}</code></dt>
-      <dd>
-        the user who fetched your status. By default it is set to <code>Scratcher</code>, but if you're
-        fetching the API, pass a <code>visitor</code> query parameter to set the name that this will return
-      </dd>
     <dt><code>{'{joke}'}</code></dt>
       <dd>a randomly generated programming joke <i>(limit of one in your status)</i></dd>
     <dt><code>{'{open}'}</code></dt>
