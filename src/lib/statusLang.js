@@ -199,9 +199,7 @@ function dataFromPath(data, path) {
 
   for (let p of path) {
     if (current[p] === undefined) {
-      throw new InvalidArgType(
-        'the requested data is not available for this user right now'
-      );
+      return 0;
     }
     current = current[p];
   }
