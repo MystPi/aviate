@@ -82,7 +82,7 @@
 
 <div class="content">
   <div class="box">
-    <h6>Filter the table</h6>
+    <h6>Search the table</h6>
     <div class="field">
       <div class="control is-expanded">
         <input bind:value={filter} class="input" type="text" placeholder="Works on the username and status fields">

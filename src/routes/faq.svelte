@@ -74,7 +74,4 @@
     due to Scratch's browser extension policy, the extension will not be linked
     here; instead, you can find it on GitHub at MystPi/aviate-integration.
   </p>
-
-  <h3>How do I become an admin?</h3>
-  <p>See the <a href="/admins">admins</a> page for information.</p>
 </div>
