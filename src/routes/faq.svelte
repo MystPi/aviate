@@ -45,10 +45,10 @@
     personal information or anything inappropriate for Scratch in it.
   </p>
 
-  <h3>Why does my status say "the requested data is not available for this user right now"?</h3>
+  <h3>Why do some components return 0? Is that supposed to happen?</h3>
   <p>There are three possible reasons for this error:</p>
   <ol>
-    <li>You tried to use <code>{'{'}posts}</code> when you have never posted on the forums</li>
+    <li>You tried to use a forum-related component when you have never posted on the forums</li>
     <li>
       You haven't had your statistics indexed yet and you used a component
       that uses statistics. The most common reason that
