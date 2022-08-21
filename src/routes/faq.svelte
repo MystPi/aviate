@@ -70,8 +70,9 @@
 
   <h3>Is there Scratch integration?</h3>
   <p>
-    Yes! There is now a browser extension that does just that. Please note that
-    due to Scratch's browser extension policy, the extension will not be linked
-    here; instead, you can find it on GitHub at MystPi/aviate-integration.
+    Yes! There are actually two browser extensions that do just that. The better
+    extension of the two is called ScratchTools, and it also has a lot of other
+    features other than Aviate integration. The second is made by me, and it can
+    be found on GitHub at MystPi/aviate-integration.
   </p>
 </div>
