@@ -18,14 +18,13 @@
 <script>
   import Header from '$lib/components/Header.svelte';
   import Loader from '$lib/components/Loader.svelte';
-  import { onMount } from 'svelte';
 
   export let user;
 
   let promise;
   let status = user.status;
   let statusOutput;
-  let scratchDBPromise;
+  let statusDown;
 
   function setStatus() {
     promise = fetch('/api/' + user.username, {
@@ -44,17 +43,15 @@
       })
     });
 
-    statusOutput = (await (await promise).json()).result;
+    const res = await (await promise).json();
+    statusOutput = res.result;
+    statusDown = res.down;
   }
 
   async function importStatus() {
     promise = fetch(`https://my-ocular.jeffalo.net/api/user/${user.username}?noReplace=true`);
     status = (await (await promise).json()).status.replace(/{count}/g, '{posts}');
   }
-
-  onMount(() => {
-    scratchDBPromise = fetch('https://scratchdb.lefty.one/v3/user/info/' + user.username);
-  });
 </script>
 
 <svelte:head>
@@ -67,15 +64,12 @@
 </Header>
 
 <div class="content">
-  {#if scratchDBPromise}
-    {#await scratchDBPromise then res}
-      {#if !res.ok}
-        <div class="notification is-danger">
-          <a href="https://scratchdb.lefty.one/v3/docs">ScratchDB</a> is currently down. This
-          could affect your status if it has any user/forum information in it.
-        </div>
-      {/if}
-    {/await}
+  {#if statusDown}
+    <div class="notification is-danger">
+      <a href="https://scratchdb.lefty.one/v3/docs">ScratchDB</a> might be down, or the
+      requested data might not be available to you right now. This could cause some dynamic
+      components to return the number 0.
+    </div>
   {/if}
 
   <div class="level is-mobile mb-0">

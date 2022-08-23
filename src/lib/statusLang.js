@@ -199,6 +199,7 @@ function dataFromPath(data, path) {
 
   for (let p of path) {
     if (current[p] === undefined) {
+      data.down = true;
       return 0;
     }
     current = current[p];
@@ -345,7 +346,7 @@ async function fetchWithTimeout(url = '') {
   return result;
 }
 
-export async function run(status, user) {
+export async function run(status, user, detectIfDown = false) {
   try {
     let userData, forumData;
 
@@ -367,10 +368,20 @@ export async function run(status, user) {
       ...userData,
       forumData,
       joke,
+      down: false,
     };
 
     const result = await evaluate(parse(tokenize(status)), data);
-    return result.replace(/\n/g, ' ');
+    const singleLine = result.replace(/\n/g, ' ');
+
+    if (detectIfDown) {
+      return {
+        result: singleLine,
+        down: data.down,
+      };
+    } else {
+      return singleLine;
+    }
   } catch (e) {
     return `[error] ${e.message}`;
   }
