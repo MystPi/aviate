@@ -115,6 +115,13 @@
     <input class="input is-family-monospace" value={statusOutput} readonly/>
   {/if}
 
+  <h2>Rules</h2>
+  <p>
+    Statuses must follow all of Scratch's rules, including the
+    <a href="https://scratch.mit.edu/community_guidelines">Community Guidelines</a>
+    and section 3 of the
+    <a href="https://scratch.mit.edu/terms_of_use#rules-of-usage">Terms of Use</a>.
+  </p>
   <h2>Components</h2>
   <p>
     This sections lists the components you can use in your status. Components
