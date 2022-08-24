@@ -25,6 +25,7 @@
   let status = user.status;
   let statusOutput;
   let statusDown;
+  let imported = false;
 
   function setStatus() {
     promise = fetch('/api/' + user.username, {
@@ -51,6 +52,12 @@
   async function importStatus() {
     promise = fetch(`https://my-ocular.jeffalo.net/api/user/${user.username}?noReplace=true`);
     status = (await (await promise).json()).status.replace(/{count}/g, '{posts}');
+    imported = true;
+  }
+
+  function undoImport() {
+    status = user.status;
+    imported = false;
   }
 </script>
 
@@ -84,10 +91,11 @@
     </div>
     <div class="level-right">
       <button
-        on:click={importStatus}
+        on:click={imported ? undoImport() : importStatus()}
         class="button is-small is-text"
         title="Import your status from ocular">
-        Import</button>
+        {imported ? 'Undo' : 'Import'}
+      </button>
     </div>
   </div>
   <div class="field is-grouped">
