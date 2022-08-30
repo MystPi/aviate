@@ -19,6 +19,7 @@ const forums = {
   timac: "Things I'm Making and Creating",
   tirap: "Things I'm Reading and Playing",
   cthpw: 'Connecting to the Physical World',
+  psalc: 'Project Save & Level Codes',
 };
 
 const categories = [
@@ -230,8 +231,6 @@ export async function evaluate(parsed, data) {
         case 'id':
         case 'country':
         case 'status':
-        case 'bio':
-        case 'work':
           assertAmount(args, 0);
           return dataFromPath(data, name);
         case 'joke':
@@ -383,6 +382,14 @@ export async function run(status, user, detectIfDown = false) {
       return singleLine;
     }
   } catch (e) {
-    return `[error] ${e.message}`;
+    const message = `[error] ${e.message}`;
+    if (detectIfDown) {
+      return {
+        result: message,
+        down: false,
+      };
+    } else {
+      return message;
+    }
   }
 }

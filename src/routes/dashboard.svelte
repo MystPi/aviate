@@ -150,12 +150,12 @@
       <b>Categories (click to expand)</b>
     </summary>
     <ul>
-      <li>loves
-      <li>favorites
-      <li>comments
-      <li>views
-      <li>followers
-      <li>following
+      <li>loves</li>
+      <li>favorites</li>
+      <li>comments</li>
+      <li>views</li>
+      <li>followers</li>
+      <li>following</li>
     </ul>
     <br/>
   </details>
@@ -164,23 +164,24 @@
       <b>Forums (click to expand)</b>
     </summary>
     <ul>
-      <li><b>total</b>: total
-      <li><b>sat</b>: Show and Tell
-      <li><b>announcements</b>: Announcements
-      <li><b>ns</b>: New Scratchers
-      <li><b>hws</b>: Help with Scripts
-      <li><b>requests</b>: Requests
-      <li><b>dse</b>: Developing Scratch Extensions
-      <li><b>qas</b>: Questions about Scratch
-      <li><b>at</b>: Advanced Topics
-      <li><b>suggestions</b>: Suggestions
-      <li><b>collaboration</b>: Collaboration
-      <li><b>bag</b>: Bugs and Glitches
-      <li><b>pi</b>: Project Ideas
-      <li><b>osp</b>: Open Source Projects
-      <li><b>timac</b>: Things I'm Making and Creating
-      <li><b>tirap</b>: Things I'm Reading and Playing
-      <li><b>ctpw</b>: Connecting to the Physical World
+      <li><b>total</b>: total</li>
+      <li><b>sat</b>: Show and Tell</li>
+      <li><b>announcements</b>: Announcements</li>
+      <li><b>ns</b>: New Scratchers</li>
+      <li><b>hws</b>: Help with Scripts</li>
+      <li><b>requests</b>: Requests</li>
+      <li><b>dse</b>: Developing Scratch Extensions</li>
+      <li><b>qas</b>: Questions about Scratch</li>
+      <li><b>at</b>: Advanced Topics</li>
+      <li><b>suggestions</b>: Suggestions</li>
+      <li><b>collaboration</b>: Collaboration</li>
+      <li><b>bag</b>: Bugs and Glitches</li>
+      <li><b>pi</b>: Project Ideas</li>
+      <li><b>osp</b>: Open Source Projects</li>
+      <li><b>timac</b>: Things I'm Making and Creating</li>
+      <li><b>tirap</b>: Things I'm Reading and Playing</li>
+      <li><b>ctpw</b>: Connecting to the Physical World</li>
+      <li><b>psalc</b>: Project Save & Level Codes</li>
     </ul>
   </details>
   <br/>
@@ -199,10 +200,6 @@
       <dd>your country</dd>
     <dt><code>{'{status}'}</code></dt>
       <dd>your rank, eg. "Scratcher"</dd>
-    <dt><code>{'{bio}'}</code></dt>
-      <dd>your "About Me"</dd>
-    <dt><code>{'{work}'}</code></dt>
-      <dd>your "What I'm Working On"</dd>
     <dt><code>{'{joke}'}</code></dt>
       <dd>a randomly generated programming joke <i>(limit of one in your status)</i></dd>
     <dt><code>{'{open}'}</code></dt>
