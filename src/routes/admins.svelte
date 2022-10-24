@@ -20,6 +20,6 @@
     <li>scratchusername40 - <a href="https://scratch.mit.edu/users/scratchusername40#comments">Scratch</a></li>
     <li>ScolderCreations - <a href="https://scratch.mit.edu/users/ScolderCreations#comments">Scratch</a></li>
     <li>AIGamesDeveloper - <a href="https://scratch.mit.edu/users/AIGamesDeveloper#comments">Scratch</a></li>
-    <li>Poiygon - <a href="https://scratch.mit.edu/users/Poiygon#comments">Scratch</a></li>
+    <li>MichaeIWave - <a href="https://scratch.mit.edu/users/MichaeIWave#comments">Scratch</a></li>
   </ul>
 </div>
