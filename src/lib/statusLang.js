@@ -281,7 +281,7 @@ export async function evaluate(parsed, data) {
           }
         case 'stats':
           assertCategory(args);
-          return dataFromPath(data, 'statistics.ranks.' + args[0]);
+          return dataFromPath(data, 'statistics.' + args[0]);
 
         // Math
         case 'add':
