@@ -19,7 +19,7 @@ export async function getUserByUsername(username, sensitive = true) {
     user = await supabase
       .from('users')
       .select()
-      .ilike('username', username.replace(/_|%/g, '$1$1'));
+      .ilike('username', username.replace(/(_|%)/g, '\\$1'));
   }
 
   if (!user.data?.length) return Promise.resolve(null);
