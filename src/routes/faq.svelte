@@ -11,13 +11,11 @@
 </Header>
 
 <div class="content">
-  <h3>What are the differences from Ocular statuses?</h3>
+  <h3>What should I do if I find an inappropriate status?</h3>
   <p>
-    While Ocular statuses are great, they just don't have many components
-    available and aren't that flexible, though they are widely used. With
-    Aviate, you can easily make awesome statuses that tell information
-    about the user, like how many followers they have, what rank they are,
-    what their user ID is — the possibilities are almost endless.
+    Please report it on an <a href="/admins">admin</a>'s profile and they will
+    delete the user's status. Alternatively, you can click the 'feedback' link
+    at the top of the page then click 'other' and report the status.
   </p>
 
   <h3>What is the endpoint for fetching a user's status?</h3>
@@ -31,7 +29,7 @@
     Use the same endpoint as above but with <code>?code=true</code> at the end,
     eg. <code>/api/NFlex23?code=true</code>.
   </p>
-  
+
   <h3>Can I view a user's status without fetching an API endpoint?</h3>
   <p>
     Yes! Aviate now has a user status page that you can find at
@@ -45,7 +43,7 @@
     personal information or anything inappropriate for Scratch in it.
   </p>
 
-  <h3>Why do some components return 0? Is that supposed to happen?</h3>
+  <h3>Why does my status say "requested data not available right now"?</h3>
   <p>There are three possible reasons for this error:</p>
   <ol>
     <li>You tried to use a forum-related component when you have never posted on the forums</li>
@@ -60,13 +58,6 @@
       within an hour or so.
     </li>
   </ol>
-
-  <h3>What should I do if I find an inappropriate status?</h3>
-  <p>
-    Please report it on an <a href="/admins">admin</a>'s profile and they will
-    delete the user's status. Alternatively, you can click the 'feedback' link
-    at the top of the page then click 'other' and report the status.
-  </p>
 
   <h3>Is there Scratch integration?</h3>
   <p>

@@ -1,4 +1,34 @@
-const jokes = [
+export const categories = [
+  'loves',
+  'favorites',
+  'comments',
+  'views',
+  'followers',
+  'following',
+];
+
+export const forums = {
+  total: 'total',
+  sat: 'Show and Tell',
+  announcements: 'Announcements',
+  ns: 'New Scratchers',
+  hws: 'Help with Scripts',
+  requests: 'Requests',
+  dse: 'Developing Scratch Extensions',
+  qas: 'Questions about Scratch',
+  at: 'Advanced Topics',
+  suggestions: 'Suggestions',
+  collaboration: 'Collaboration',
+  bag: 'Bugs and Glitches',
+  pi: 'Project Ideas',
+  osp: 'Open Source Projects',
+  timac: "Things I'm Making and Creating",
+  tirap: "Things I'm Reading and Playing",
+  cthpw: 'Connecting to the Physical World',
+  psalc: 'Project Save & Level Codes',
+};
+
+export const jokes = [
   'How did the programmer die in the shower? He read the shampoo bottle instructions: Lather. Rinse. Repeat.',
   "How many programmers does it take to change a light bulb? None - It's a hardware problem",
   'Why do programmers always mix up Halloween and Christmas? Because Oct 31 equals Dec 25.',
@@ -32,5 +62,3 @@ const jokes = [
   'Chuck Norris can unit test entire applications with a single assert.',
   'Software can be fast, reliable and cheap. Choose any two.',
 ];
-
-export default jokes;
