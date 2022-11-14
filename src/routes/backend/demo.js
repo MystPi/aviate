@@ -25,7 +25,6 @@ export async function post({ request }) {
       status: 200,
       body: {
         result,
-        down: false,
       },
     };
   }
