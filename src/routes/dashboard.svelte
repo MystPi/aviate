@@ -216,14 +216,14 @@
   <dl>
     <dt><code>{'{'}percent <u>a (number)</u> <u>b (number)</u>}</code></dt>
       <dd>find what percent <code><u>a</u></code> is of <code><u>b</u></code>, e.g. <code>{'{'}percent 1 2}</code> <code>50</code></dd>
-    <dt><code>{'{'}add <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>add all of the arguments</dd>
-    <dt><code>{'{'}sub <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>subtract all of the arguments</dd>
-    <dt><code>{'{'}mul <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>multiply all of the arguments</dd>
-    <dt><code>{'{'}div <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>divide all of the arguments</dd>
+    <dt><code>{'{'}add <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>add <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}sub <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>subtract <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}mul <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>multiply <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}div <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>divide <code><u>a</u></code> and <code><u>b</u></code></dd>
     <dt><code>{'{'}pow <u>a (number)</u> <u>b (number)</u>}</code></dt>
       <dd>raise <code><u>a</u></code> to the power of <code><u>b</u></code></dd>
     <dt><code>{'{'}root <u>a (number)</u> <u>b (number)</u>}</code></dt>
