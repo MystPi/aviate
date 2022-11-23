@@ -1,5 +1,5 @@
 import { getUserFromCookies } from '$lib/db';
-import { run } from '$lib/statusLang';
+import lang from '$lib/statuslang/index';
 import { parse } from 'cookie';
 
 export async function post({ request }) {
@@ -19,13 +19,12 @@ export async function post({ request }) {
   const user = await getUserFromCookies(cookies);
 
   if (user) {
-    const { result, down } = await run(status, user.username, true);
+    const result = await lang.run(user.username, status);
 
     return {
       status: 200,
       body: {
         result,
-        down,
       },
     };
   }

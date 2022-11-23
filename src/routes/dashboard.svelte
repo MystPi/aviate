@@ -24,7 +24,6 @@
   let promise;
   let status = user.status;
   let statusOutput;
-  let statusDown;
   let imported = false;
 
   function setStatus() {
@@ -46,7 +45,6 @@
 
     const res = await (await promise).json();
     statusOutput = res.result;
-    statusDown = res.down;
   }
 
   async function importStatus() {
@@ -71,14 +69,6 @@
 </Header>
 
 <div class="content">
-  {#if statusDown}
-    <div class="notification is-danger">
-      <a href="https://scratchdb.lefty.one/v3/docs">ScratchDB</a> might be down, or the
-      requested data might not be available to you right now. This could cause some dynamic
-      components to return the number 0.
-    </div>
-  {/if}
-
   <div class="level is-mobile mb-0">
     <div class="level-left">
       <h6>
@@ -226,14 +216,14 @@
   <dl>
     <dt><code>{'{'}percent <u>a (number)</u> <u>b (number)</u>}</code></dt>
       <dd>find what percent <code><u>a</u></code> is of <code><u>b</u></code>, e.g. <code>{'{'}percent 1 2}</code> <code>50</code></dd>
-    <dt><code>{'{'}add <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>add all of the arguments</dd>
-    <dt><code>{'{'}sub <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>subtract all of the arguments</dd>
-    <dt><code>{'{'}mul <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>multiply all of the arguments</dd>
-    <dt><code>{'{'}div <u>a (number)</u> <u>b (number)</u> ...}</code></dt>
-      <dd>divide all of the arguments</dd>
+    <dt><code>{'{'}add <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>add <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}sub <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>subtract <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}mul <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>multiply <code><u>a</u></code> and <code><u>b</u></code></dd>
+    <dt><code>{'{'}div <u>a (number)</u> <u>b (number)</u>}</code></dt>
+      <dd>divide <code><u>a</u></code> and <code><u>b</u></code></dd>
     <dt><code>{'{'}pow <u>a (number)</u> <u>b (number)</u>}</code></dt>
       <dd>raise <code><u>a</u></code> to the power of <code><u>b</u></code></dd>
     <dt><code>{'{'}root <u>a (number)</u> <u>b (number)</u>}</code></dt>
