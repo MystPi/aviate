@@ -32,6 +32,7 @@
 
 <svelte:head>
   <script src="https://unpkg.com/feedbackfin@^1" defer></script>
+  <script src="https://app.embed.im/snow.js" defer></script>
 </svelte:head>
 
 <img src="/blur.svg" alt="" class="blob" id="right">
