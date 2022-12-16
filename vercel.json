@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    {
+      "source": "/api/http.*",
+      "destination": "/"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
