@@ -32,6 +32,7 @@
 
 <svelte:head>
   <script src="https://unpkg.com/feedbackfin@^1" defer></script>
+  <script src='https://takeback-1-z0821782.deta.app/api/kit/XFE1Y1HGZRM91HS76SUUV8' />
 </svelte:head>
 
 <img src="/blur.svg" alt="" class="blob" id="right">
