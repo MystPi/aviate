@@ -191,7 +191,7 @@
     <dt><code>{'{status}'}</code></dt>
       <dd>your rank, eg. "Scratcher"</dd>
     <dt><code>{'{joke}'}</code></dt>
-      <dd>a randomly generated programming joke <i>(limit of one in your status)</i></dd>
+      <dd>a randomly generated programming-related or corny dad joke (can be either) <i>(limit of one in your status)</i></dd>
     <dt><code>{'{open}'}</code></dt>
       <dd>a literal <code>{'{'}</code></dd>
     <dt><code>{'{close}'}</code></dt>
