@@ -79,7 +79,7 @@ export const jokes = [
   "How does the moon cut his hair? Eclipse it.",
   "What did one wall say to the other? I'll meet you at the corner.",
   "What did the zero say to the eight? That belt looks good on you.",
-  "A skeleton walks into a bar and says, 'Hey, bartender. I'll have one beer and a mop.'",
+  "A skeleton walks into a bar and says, 'Hey, bartender. I'll have a drink and a mop.'",
   "Where do fruits go on vacation? Pear-is!",
   "I asked my dog what's two minus two. He said nothing.",
   "What did Baby Corn say to Mama Corn? Where's Pop Corn?",
