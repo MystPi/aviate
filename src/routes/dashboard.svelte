@@ -120,7 +120,7 @@
     are dynamically updated, meaning each time someone fetches your status they
     will show the correct information. For example, if you use the
     <code>{'{followers}'}</code> component it will always show the amount of
-    followers you have on Scratch, though it could be slightly out of date since
+    followers you have on Scratch, though it could be slightly outdated since
     <a href="https://scratchdb.lefty.one/v3/docs/">ScratchDB</a> may not have
     indexed you recently.
   </p>
