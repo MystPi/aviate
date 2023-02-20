@@ -90,7 +90,6 @@ export const jokes = [
   "Dad, did you get a haircut? No, I got them all cut!",
   "What do you call a poor Santa Claus? St. Nickel-less.",
   "Why did the edge server go bankrupt? It ran out of cache.",
-  "How many developers does it take to screw on a lightbulb? None, it's a hardware problem.",
   "What's the best thing about Switzerland? I don't know, but the flag is a big plus.",
   "Why did the farmer win an award? He was outstanding in his field.",
 ];
