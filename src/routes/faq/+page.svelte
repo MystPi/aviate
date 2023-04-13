@@ -35,13 +35,6 @@
       <code>/api/NFlex23?code=true</code>.
     </p>
 
-    <h2>Can I view a user&#39;s status without fetching an API endpoint?</h2>
-    <p>
-      Yes! Aviate now has a user status page that you can find at
-      <code>/user/[user]</code>. For example, if you click
-      <a href="/user/NFlex23">this</a> you will view the owner&#39;s status.
-    </p>
-
     <h2>Can everyone see my status?</h2>
     <p>
       Yes, everyone can see your status and its code, so please don&#39;t put personal information
