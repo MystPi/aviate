@@ -1,5 +1,5 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '$env/static/private';
-import type { Database } from './supabase';
+import type { Database } from './database';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_KEY);
