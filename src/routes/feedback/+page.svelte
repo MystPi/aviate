@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { PageHeader } from '$lib/components';
   // @ts-ignore
   import Giscus from '@giscus/svelte';

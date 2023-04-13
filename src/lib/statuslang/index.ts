@@ -208,7 +208,7 @@ export const components = {
   // --- Misc ---
   joke: {
     args: [],
-    description: 'Get a random joke',
+    description: 'Get a random joke (limit of one in your status)',
     func: (_, state) => {
       if (state.hadJoke) {
         throw new Error('Only one joke component is allowed');

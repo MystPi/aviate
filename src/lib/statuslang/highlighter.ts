@@ -4,13 +4,17 @@ import MagicString from 'magic-string';
 export function highlight(text: string) {
   const tokens = lexer.tokenize(text).tokens;
   const s = new MagicString(text);
+  let depth = 0;
 
   s.replace(/[<&]/g, (m) => (m === '<' ? '&lt;' : '&amp;'));
 
   for (const [i, token] of tokens.entries()) {
+    const type = token.tokenType.name;
+    const start = token.startOffset;
+    const end = token.endOffset!;
     let className = '';
 
-    switch (token.tokenType.name) {
+    switch (type) {
       case 'UnquotedString':
         className = 'text-slate-700';
         break;
@@ -29,14 +33,34 @@ export function highlight(text: string) {
         break;
       case 'Ident':
         if (tokens[i - 1]?.tokenType.name === 'LBrace') {
-          className = 'text-slate-700 font-bold underline underline-offset-2 decoration-slate-200';
+          className = 'text-slate-700 font-bold';
         } else {
           className = 'text-violet-700';
         }
         break;
     }
-    s.appendRight(token.startOffset, `<span class="${className}">`);
-    s.appendRight(token.endOffset! + 1, '</span>');
+
+    if (type === 'LBrace') {
+      depth++;
+      if (depth === 1) {
+        s.appendRight(
+          start,
+          '<span class="rounded shadow outline-dashed outline-1 outline-slate-400">'
+        );
+      }
+    } else if (type === 'RBrace' && depth) {
+      depth--;
+      if (depth === 0) {
+        s.appendRight(end + 1, '</span>');
+      }
+    }
+
+    s.appendRight(start, `<span class="${className}">`);
+    s.appendRight(end + 1, '</span>');
+  }
+
+  while (depth--) {
+    s.append('</span>');
   }
 
   if (text.length) {

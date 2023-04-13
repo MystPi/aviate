@@ -73,9 +73,6 @@
         <Chip on:click={getOcular} clickable={true} color="neutral" title="Copy your ocular status">
           Ocular <Copy width={12} height={12} />
         </Chip>
-        <!-- <Chip class={value.length === 200 ? 'animate-pulse' : ''} title="Character limit">
-          {value.length ?? '0'}/200
-        </Chip> -->
       </div>
       <HighlightedTextarea bind:value />
     </form>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { componentsIndex } from '$lib/statuslang';
   import { slide } from 'svelte/transition';
 
@@ -9,6 +9,20 @@
       x.name.toLowerCase().includes(filterInput.toLowerCase()) ||
       x.description?.toLowerCase().includes(filterInput.toLowerCase())
   );
+
+  async function copyComponent(component: (typeof componentsIndex)[number]) {
+    let args: string;
+
+    if (component.args?.length) {
+      args = ' ' + component.args.join(' ');
+    } else if (component.args === null) {
+      args = ' args..';
+    } else {
+      args = '';
+    }
+
+    await navigator.clipboard.writeText(`{${component.name}${args}}`);
+  }
 </script>
 
 <div class="no-scrollbar h-80 overflow-auto rounded-md border border-slate-500 bg-white shadow-lg">
@@ -25,9 +39,7 @@
     <div transition:slide|local class="group border-b p-3">
       <button
         on:click={async (e) => {
-          await navigator.clipboard.writeText(
-            `{${component.name}${component.args ? ' ' + component.args.join(' ') : 'args..'}}`
-          );
+          copyComponent(component);
           // I kind of hate to do this
           // @ts-ignore
           e.target.textContent = 'Copied →';

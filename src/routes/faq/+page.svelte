@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { PageHeader, Prose } from '$lib/components';
 </script>
 
