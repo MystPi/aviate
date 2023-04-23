@@ -1,10 +1,12 @@
 <script lang="ts">
-  import { PageHeader } from '$lib/components';
+  import { Seo, PageHeader } from '$lib/components';
   // @ts-ignore
   import Giscus from '@giscus/svelte';
 </script>
 
-<PageHeader pagetitle="Feedback">
+<Seo title="Feedback" description="Share your feedback to help improve Aviate!" />
+
+<PageHeader>
   <span slot="title">
     Share your <span class="gradient-text">Feedback</span>
   </span>

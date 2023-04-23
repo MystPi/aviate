@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
-  import { PageHeader, Chip, Button, HighlightedTextarea, Components } from '$lib/components';
+  import { Seo, PageHeader, Chip, Button, HighlightedTextarea, Components } from '$lib/components';
   import { run } from '$lib/statuslang';
   import { Play, Checkmark, Copy, Book } from '$lib/icons';
   import { slide, fade } from 'svelte/transition';
@@ -43,7 +43,9 @@
   }
 </script>
 
-<PageHeader pagetitle="Dashboard">
+<Seo title="Dashboard" description="Customize and set your Aviate status here." />
+
+<PageHeader>
   <span slot="title">
     {data.username}'s <span class="gradient-text">Dashboard</span>
   </span>

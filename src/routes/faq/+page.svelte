@@ -1,8 +1,10 @@
 <script lang="ts">
-  import { PageHeader, Prose } from '$lib/components';
+  import { Seo, PageHeader, Prose } from '$lib/components';
 </script>
 
-<PageHeader pagetitle="FAQs">
+<Seo title="FAQs" description="Have any questions about Aviate? They might be answered here." />
+
+<PageHeader>
   <span slot="title">
     Frequently asked <span class="gradient-text">Questions</span>
   </span>

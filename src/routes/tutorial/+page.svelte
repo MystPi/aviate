@@ -1,9 +1,14 @@
 <script lang="ts">
-  import { PageHeader, Prose, Codeblock } from '$lib/components';
+  import { Seo, PageHeader, Prose, Codeblock } from '$lib/components';
   import { forums, categories } from '$lib/statuslang/consts';
 </script>
 
-<PageHeader pagetitle="Tutorial">
+<Seo
+  title="Tutorial"
+  description="Read the tutorial to learn how statuses work. Then, write your own!"
+/>
+
+<PageHeader>
   <span slot="title">
     Read the <span class="gradient-text">Tutorial</span>
   </span>

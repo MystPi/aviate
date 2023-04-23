@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from '$lib/components';
+  import { Seo, Button } from '$lib/components';
   import { goto } from '$app/navigation';
 
   export let data;
@@ -7,9 +7,9 @@
   let usernameSearch = '';
 </script>
 
-<svelte:head>
-  <title>Aviate</title>
-</svelte:head>
+<Seo
+  description="Create dynamic, component driven statuses on the fly, then use them on Scratch and across the web with Aviate's easy to use API."
+/>
 
 <header class="mb-10 space-y-3 sm:mb-16">
   <h1 class="font-space text-4xl tracking-tighter sm:text-5xl">
