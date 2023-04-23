@@ -1,7 +1,7 @@
 import { lexer } from './lexer';
 import MagicString from 'magic-string';
 
-export function highlight(text: string) {
+export function highlight(text: string, charsLeft?: boolean) {
   const tokens = lexer.tokenize(text).tokens;
   const s = new MagicString(text);
   let depth = 0;
@@ -63,7 +63,7 @@ export function highlight(text: string) {
     s.append('</span>');
   }
 
-  if (text.length) {
+  if (text.length && charsLeft) {
     s.append(` <span class="text-slate-300 text-sm">${200 - text.length} left</span>`);
   }
 

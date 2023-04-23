@@ -11,6 +11,7 @@
 
   const mainRoutes = [
     ['Home', '/'],
+    ['Tutorial', '/tutorial'],
     ['FAQs', '/faq'],
     ['Feedback', '/feedback'],
   ];

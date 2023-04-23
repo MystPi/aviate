@@ -30,7 +30,7 @@
     <Button href={data.username ? '/dashboard' : '/auth/login'} type="a" color="hero">
       Get started
     </Button>
-    <a href="/about">Learn more →</a>
+    <a href="/tutorial">Read the tutorial →</a>
   </div>
 </header>
 

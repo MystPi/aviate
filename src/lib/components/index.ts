@@ -4,3 +4,4 @@ export { default as Chip } from './Chip.svelte';
 export { default as Button } from './Button.svelte';
 export { default as HighlightedTextarea } from './HighlightedTextarea.svelte';
 export { default as Components } from './Components.svelte';
+export { default as Codeblock } from './Codeblock.svelte';

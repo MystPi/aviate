@@ -6,7 +6,7 @@
   let highlighted = '';
 
   $: {
-    highlighted = highlight(value);
+    highlighted = highlight(value, true);
 
     if (value[value.length - 1] === '\n') {
       highlighted += ' ';

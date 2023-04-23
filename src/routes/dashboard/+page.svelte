@@ -2,7 +2,7 @@
   import { enhance } from '$app/forms';
   import { PageHeader, Chip, Button, HighlightedTextarea, Components } from '$lib/components';
   import { run } from '$lib/statuslang';
-  import { Play, Checkmark, Copy } from '$lib/icons';
+  import { Play, Checkmark, Copy, Book } from '$lib/icons';
   import { slide, fade } from 'svelte/transition';
   import confetti from 'canvas-confetti';
 
@@ -68,7 +68,11 @@
         </Button>
         <Button color="teal" title="Set your status">Set <Checkmark /></Button>
         <div class="hidden flex-1 border border-slate-200 sm:block" />
-        <span class="hidden text-slate-400 sm:block">Status editor ✨</span>
+        <a
+          href="/tutorial"
+          class="hidden gap-2 text-slate-400 transition hover:scale-105 sm:flex sm:items-center"
+          >Read the tutorial <Book /></a
+        >
         <div class="hidden flex-1 border border-slate-200 sm:block" />
         <Chip on:click={getOcular} clickable={true} color="neutral" title="Copy your ocular status">
           Ocular <Copy width={12} height={12} />
