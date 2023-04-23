@@ -8,7 +8,7 @@
 </script>
 
 <Seo
-  description="Create dynamic, component driven statuses on the fly, then use them on Scratch and across the web with Aviate's easy to use API."
+  description="Use your imagination to create fun and magical statuses, then use them on Scratch (and across the web!) with a simple API."
 />
 
 <header class="mb-10 space-y-3 sm:mb-16">
@@ -16,8 +16,9 @@
     Welcome to <span class="gradient-text">Aviate!</span>
   </h1>
   <h2 class="sm:text-lg">
-    Create dynamic, component driven statuses on the fly, then use them on Scratch and across the
-    web with Aviate's easy to use API
+    Use your imagination to create <strong title="🎈">fun</strong> and
+    <strong title="🔮">magical</strong> statuses, then use them on Scratch (and across the web!) with
+    a simple API.
   </h2>
 
   <p
