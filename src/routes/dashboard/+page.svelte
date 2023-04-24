@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
-  import { Seo, PageHeader, Chip, Button, HighlightedTextarea, Components } from '$lib/components';
+  import { Seo, PageHeader, Chip, Button, HighlightedTextarea, Components, Prose } from '$lib/components';
   import { run } from '$lib/statuslang';
-  import { Play, Checkmark, Copy, Book } from '$lib/icons';
+  import { Play, Checkmark, Copy, Book, Locked } from '$lib/icons';
   import { slide, fade } from 'svelte/transition';
   import confetti from 'canvas-confetti';
 
@@ -100,4 +100,10 @@
   {/if}
 </div>
 
-<Components />
+<div class="sm:grid grid-cols-2 gap-6">
+  <Components />
+  <Prose class="mt-6 sm:mt-0 prose">
+    <h2 class="flex items-center gap-2"><Locked class="inline" size={24} />Aviate has rules:</h2>
+    <p>Your status <strong>must</strong> follow Scratch's <a href="https://scratch.mit.edu/community_guidelines/">community guidelines</a> and section 3.1 to 3.5 of Scratch's <a href="https://scratch.mit.edu/terms_of_use">Terms of Use</a>. In short, your status must contain content that is safe for Scratch. If you find a status breaking the rules, please reach out to an <a href="/admins">admin</a> and they will deal with the violator. Thank you for helping to keep Aviate safe for all ages!</p>
+  </Prose>
+</div>
