@@ -9,7 +9,7 @@ module.exports = {
         'spin-slow': 'spin 60s linear infinite',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Outfit', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
         space: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
