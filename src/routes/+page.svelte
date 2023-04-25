@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Seo, Button } from '$lib/components';
+  import { Search, Rocket } from '$lib/icons';
   import { goto } from '$app/navigation';
 
   export let data;
@@ -29,7 +30,7 @@
 
   <div class="flex items-center gap-6">
     <Button href={data.username ? '/dashboard' : '/auth/login'} type="a" color="hero">
-      Get started
+      Get started <Rocket />
     </Button>
     <a href="/tutorial">Read the tutorial →</a>
   </div>
@@ -50,6 +51,10 @@
       placeholder="Enter a username"
       bind:value={usernameSearch}
     />
-    <button class="rounded-r-md bg-gradient-to-br from-white to-slate-200 px-4">Search</button>
+    <button
+      class="flex items-center gap-2 rounded-r-md bg-gradient-to-br from-white to-slate-200 px-4"
+    >
+      <Search /> Search
+    </button>
   </form>
 </main>
