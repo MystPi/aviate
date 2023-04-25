@@ -60,7 +60,7 @@
   <span slot="subtitle">Customize and set your status here.</span>
 </PageHeader>
 
-<main class="grid gap-6 sm:grid-cols-2">
+<main class="grid items-center gap-6 sm:grid-cols-2">
   <div class="relative sm:col-span-2">
     <div class="gradient-shadow rounded-lg border border-slate-500 bg-white p-3">
       <form
