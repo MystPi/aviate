@@ -13,7 +13,7 @@
 />
 
 <header class="mb-10 space-y-3 sm:mb-16">
-  <h1 class="font-space text-4xl tracking-tighter sm:text-5xl">
+  <h1 class="font-display text-4xl tracking-tighter sm:text-5xl">
     Welcome to <span class="gradient-text">Aviate!</span>
   </h1>
   <h2 class="sm:text-lg">

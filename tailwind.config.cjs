@@ -11,7 +11,7 @@ module.exports = {
       fontFamily: {
         sans: ['Outfit', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
-        space: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+        display: ['Lexend', ...defaultTheme.fontFamily.sans],
       },
     },
   },
