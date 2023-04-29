@@ -17,6 +17,10 @@
     @apply before:brand-gradient relative before:absolute before:inset-0.5 before:-z-10 before:translate-y-1 before:bg-gradient-to-br before:blur-sm;
   }
 
+  .gradient-border {
+    @apply before:brand-gradient relative before:absolute before:-inset-0.5 before:-z-10 before:rounded-lg before:bg-gradient-to-br;
+  }
+
   .gradient-text {
     @apply brand-gradient bg-gradient-to-r bg-clip-text text-transparent;
   }

@@ -25,14 +25,14 @@
   }
 </script>
 
-<div class="no-scrollbar h-80 overflow-auto rounded-md border border-slate-500 bg-white shadow-lg">
+<div class="no-scrollbar h-80 overflow-auto rounded-md border border-slate-300 bg-white shadow-lg">
   <div class="sticky top-0 z-10 bg-white p-3 shadow">
     <input
       bind:value={filterInput}
       type="text"
       placeholder="Filter components"
       autocomplete="off"
-      class="block w-full rounded-md border border-slate-500 bg-white px-4 py-1 shadow-inner outline-none transition focus:ring"
+      class="block w-full rounded-md border border-slate-300 bg-white px-4 py-1 shadow-inner outline-none transition focus:ring"
     />
   </div>
   {#each filtered as component}

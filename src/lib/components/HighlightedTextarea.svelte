@@ -34,6 +34,6 @@
     autocomplete="off"
     spellcheck="false"
     maxlength="200"
-    class="relative z-10 block w-full rounded-md border border-slate-500 bg-transparent px-4 py-2 font-mono leading-relaxed text-transparent caret-black shadow-inner outline-none transition focus:ring"
+    class="relative z-10 block w-full rounded-md border border-slate-300 bg-transparent px-4 py-2 font-mono leading-relaxed text-transparent caret-black shadow-inner outline-none transition focus:ring"
   />
 </div>
