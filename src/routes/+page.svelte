@@ -29,8 +29,8 @@
   </p>
 
   <div class="flex items-center gap-6">
-    <Button href={data.username ? '/dashboard' : '/auth/login'} type="a" color="hero">
-      Get started <Rocket />
+    <Button href={data.username ? '/dashboard' : '/auth/login'} type="a" color="hero" class="group">
+      Get started <Rocket class="transition group-hover:rotate-45" />
     </Button>
     <a href="/tutorial">Read the tutorial →</a>
   </div>
