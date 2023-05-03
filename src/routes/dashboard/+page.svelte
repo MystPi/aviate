@@ -109,7 +109,7 @@
     {#if loadingStatus === Status.Loading}
       <div
         transition:fade={{ duration: 50 }}
-        class="absolute -inset-0.5 z-20 rounded-lg bg-slate-900/10 backdrop-blur-sm"
+        class="absolute -inset-0.5 z-20 rounded-lg bg-slate-900/10"
       />
     {/if}
   </div>
