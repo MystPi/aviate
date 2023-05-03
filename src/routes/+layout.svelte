@@ -2,6 +2,9 @@
   import NProgress from 'nprogress';
   import { navigating, page } from '$app/stores';
   import { Button } from '$lib/components';
+  import '@fontsource/outfit/variable.css';
+  import '@fontsource/jetbrains-mono/variable.css';
+  import '@fontsource/lexend/variable.css';
   import '../app.css';
   import '../nprogress.css';
 
@@ -32,15 +35,6 @@
     }
   }
 </script>
-
-<svelte:head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-</svelte:head>
 
 <!-- Grid background -->
 <div

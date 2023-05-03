@@ -33,6 +33,9 @@
     "vite": "^4.3.4"
   },
   "dependencies": {
+    "@fontsource/jetbrains-mono": "^4.5.12",
+    "@fontsource/lexend": "^4.5.15",
+    "@fontsource/outfit": "^4.5.11",
     "@giscus/svelte": "^2.2.8",
     "@supabase/supabase-js": "^2.21.0",
     "canvas-confetti": "^1.6.0",

@@ -9,9 +9,9 @@ module.exports = {
         'spin-slow': 'spin 60s linear infinite',
       },
       fontFamily: {
-        sans: ['Outfit', ...defaultTheme.fontFamily.sans],
-        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
-        display: ['Lexend', ...defaultTheme.fontFamily.sans],
+        sans: ['OutfitVariable', ...defaultTheme.fontFamily.sans],
+        mono: ['JetBrains MonoVariable', ...defaultTheme.fontFamily.mono],
+        display: ['LexendVariable', ...defaultTheme.fontFamily.sans],
       },
     },
   },
