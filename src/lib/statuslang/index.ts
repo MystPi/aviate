@@ -160,9 +160,9 @@ export const components = {
   },
   if: {
     control: true,
-    args: ['condition', 'trueBranch', 'falseBranch'],
+    args: ['condition', 'true', 'false'],
     description:
-      'If the condition is true, return the true branch, otherwise return the false branch',
+      'If the condition is true, returns the first argument, otherwise returns the second',
     func: async ([condition, trueBranch, falseBranch], ctx) => {
       if (await ctx.evalNode(condition)) {
         return ctx.evalNode(trueBranch);
