@@ -40,7 +40,6 @@
     "@supabase/supabase-js": "^2.21.0",
     "canvas-confetti": "^1.6.0",
     "chevrotain": "^10.5.0",
-    "deta": "^1.1.0",
     "jsonwebtoken": "^9.0.0",
     "magic-string": "^0.30.0",
     "nprogress": "^0.2.0",
