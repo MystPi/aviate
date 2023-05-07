@@ -22,3 +22,8 @@ export async function createUser(username: string) {
   await supabase.from('users').insert({ username });
   return true;
 }
+
+export async function getUserCount() {
+  const { count } = await supabase.from('users').select('*', { count: 'planned', head: true });
+  return count ?? 0;
+}

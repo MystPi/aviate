@@ -39,7 +39,7 @@
 <main class="space-y-3">
   <div class="flex items-end justify-between gap-3">
     <h2 class="text-2xl">Find a status</h2>
-    <h2 class="text-slate-500">606 users</h2>
+    <h2 class="text-slate-500">{data.userCount}+ users</h2>
   </div>
   <form
     on:submit|preventDefault={() => goto(`/api/${usernameSearch}`)}
