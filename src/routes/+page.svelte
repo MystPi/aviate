@@ -2,10 +2,19 @@
   import { Seo, Button } from '$lib/components';
   import { Search, Rocket } from '$lib/icons';
   import { goto } from '$app/navigation';
+  import { tweened } from 'svelte/motion';
+  import { cubicInOut } from 'svelte/easing';
 
   export let data;
 
   let usernameSearch = '';
+
+  const count = tweened(0, {
+    duration: 3000,
+    easing: cubicInOut,
+  });
+
+  $count = data.userCount;
 </script>
 
 <Seo
@@ -33,14 +42,12 @@
       Get started <Rocket class="transition group-hover:rotate-45" />
     </Button>
     <a href="/tutorial">Read the tutorial →</a>
+    <span class="ml-auto"><strong>{Math.floor($count)}</strong>+ users</span>
   </div>
 </header>
 
 <main class="space-y-3">
-  <div class="flex items-end justify-between gap-3">
-    <h2 class="text-2xl">Find a status</h2>
-    <h2 class="text-slate-500">{data.userCount}+ users</h2>
-  </div>
+  <h2 class="text-2xl">Find a status</h2>
   <form
     on:submit|preventDefault={() => goto(`/api/${usernameSearch}`)}
     class="gradient-shadow flex divide-x divide-black rounded-md border border-black"
