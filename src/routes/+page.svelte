@@ -2,19 +2,20 @@
   import { Seo, Button } from '$lib/components';
   import { Search, Rocket } from '$lib/icons';
   import { goto } from '$app/navigation';
-  import { tweened } from 'svelte/motion';
-  import { cubicInOut } from 'svelte/easing';
+  import { annotate, annotationGroup } from 'rough-notation';
+  import { onMount } from 'svelte';
 
   export let data;
 
   let usernameSearch = '';
 
-  const count = tweened(0, {
-    duration: 3000,
-    easing: cubicInOut,
-  });
-
-  $count = data.userCount;
+  onMount(() =>
+    annotationGroup(
+      [...document.querySelectorAll('.highlighted')].map((e) =>
+        annotate(e as HTMLElement, { type: 'highlight', color: 'rgb(139, 92, 246, 0.2)' })
+      )
+    ).show()
+  );
 </script>
 
 <Seo
@@ -26,9 +27,9 @@
     Welcome to <span class="gradient-text">Aviate!</span>
   </h1>
   <h2 class="sm:text-lg">
-    Use your imagination to create <strong title="🎈">fun</strong> and
-    <strong title="🔮">magical</strong> statuses, then use them on Scratch (and across the web!) with
-    a simple API.
+    Use your imagination to create <strong title="🎈" class="highlighted">fun</strong> and
+    <strong title="🔮" class="highlighted">magical</strong> statuses, then use them on Scratch (and across
+    the web!) with a simple API.
   </h2>
 
   <p
@@ -42,7 +43,7 @@
       Get started <Rocket class="transition group-hover:rotate-45" />
     </Button>
     <a href="/tutorial">Read the tutorial →</a>
-    <span class="ml-auto"><strong>{Math.floor($count)}</strong>+ users</span>
+    <span class="ml-auto"><strong>{data.userCount}</strong>+ users</span>
   </div>
 </header>
 
