@@ -27,6 +27,6 @@
   reactionsEnabled="0"
   emitMetadata="0"
   inputPosition="top"
-  theme="preferred_color_scheme"
+  theme="light"
   lang="en"
 />
