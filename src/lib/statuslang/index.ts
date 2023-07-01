@@ -205,6 +205,14 @@ export const components = {
       return (await data.get('forumdata')).counts?.[forums[forum]]?.count ?? 0;
     },
   },
+  forumrank: {
+    args: ['forum'],
+    description: 'Get your rank in a forum',
+    func: async ([forum], { data }) => {
+      assertForum(forum);
+      return (await data.get('forumdata')).counts?.[forums[forum]]?.rank ?? 0;
+    },
+  },
   // --- Misc ---
   joke: {
     args: [],

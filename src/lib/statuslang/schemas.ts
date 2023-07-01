@@ -4,12 +4,6 @@ import { z } from 'zod';
 
 // --- Zod Schemas ---
 
-const Count = z.object({
-  count: z.number(),
-});
-
-type Count = typeof Count;
-
 export const User = z.object({
   username: z.string(),
   id: z.number(),
@@ -22,16 +16,21 @@ export const User = z.object({
     .optional(),
 });
 
+const ForumData = z.object({
+  count: z.number(),
+  rank: z.number(),
+});
+
 export const ForumUser = z.object({
   counts: z
     .object(
       Object.keys(forums).reduce(
         (prev, curr) => ({
           ...prev,
-          [forums[curr as Forum]]: Count,
+          [forums[curr as Forum]]: ForumData,
         }),
         {}
-      ) as Record<Forums[Forum], Count>
+      ) as Record<Forums[Forum], typeof ForumData>
     )
     .partial()
     .optional(),
