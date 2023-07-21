@@ -5,7 +5,7 @@ import { visitor } from './visitor';
 import { type Components, Evaluator } from './evaluator';
 import { type DataSources, DataFetcher } from './datafetcher';
 import { forums, jokes } from './consts';
-import { User, ForumUser, assertNumber, assertForum } from './schemas';
+import { User, ForumUser, assertNumber, assertForum, assertCategory } from './schemas';
 
 function parseToAst(text: string) {
   const tokens = lex(text);
@@ -194,8 +194,29 @@ export const components = {
   },
   followers: {
     args: [],
-    description: 'Get your followers',
+    description: 'Get your followers. A shorter way of saying `{amount followers}`',
     func: async (_, { data }) => (await data.get('userdata')).statistics?.followers ?? 0,
+  },
+  amount: {
+    args: ['category'],
+    description: 'Get your total amount of a category (loves, comments, etc.)',
+    func: async ([category], { data }) => {
+      assertCategory(category);
+      return (await data.get('userdata')).statistics?.[category] ?? 0;
+    },
+  },
+  rank: {
+    args: ['category'],
+    description: 'Get your rank in a category',
+    func: async ([category], { data }) => {
+      assertCategory(category);
+      return (await data.get('userdata')).statistics?.ranks?.[category] ?? 0;
+    },
+  },
+  postcount: {
+    args: [],
+    description: 'Get your post count. A shorter way of saying `{posts total}`',
+    func: async (_, { data }) => (await data.get('forumdata')).counts?.total?.count ?? 0,
   },
   posts: {
     args: ['forum'],

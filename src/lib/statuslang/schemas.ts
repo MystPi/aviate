@@ -11,7 +11,22 @@ export const User = z.object({
   status: z.string(),
   statistics: z
     .object({
+      ranks: z
+        .object({
+          loves: z.number(),
+          favorites: z.number(),
+          comments: z.number(),
+          views: z.number(),
+          followers: z.number(),
+          following: z.number(),
+        })
+        .optional(),
+      loves: z.number(),
+      favorites: z.number(),
+      comments: z.number(),
+      views: z.number(),
       followers: z.number(),
+      following: z.number(),
     })
     .optional(),
 });
