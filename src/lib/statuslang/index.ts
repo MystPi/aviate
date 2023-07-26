@@ -4,7 +4,7 @@ import { parse } from './parser';
 import { visitor } from './visitor';
 import { type Components, Evaluator } from './evaluator';
 import { type DataSources, DataFetcher } from './datafetcher';
-import { forums, jokes } from './consts';
+import { forums, jokes, type Forum } from './consts';
 import { User, ForumUser, assertNumber, assertForum, assertCategory } from './schemas';
 
 function parseToAst(text: string) {
@@ -223,7 +223,7 @@ export const components = {
     description: 'Get your post count in a forum. Use `total` to get the total number of posts',
     func: async ([forum], { data }) => {
       assertForum(forum);
-      return (await data.get('forumdata')).counts?.[forums[forum]]?.count ?? 0;
+      return (await data.get('forumdata')).counts?.[forums[forum.toLowerCase() as Forum]]?.count ?? 0;
     },
   },
   forumrank: {
@@ -231,7 +231,7 @@ export const components = {
     description: 'Get your rank in a forum',
     func: async ([forum], { data }) => {
       assertForum(forum);
-      return (await data.get('forumdata')).counts?.[forums[forum]]?.rank ?? 0;
+      return (await data.get('forumdata')).counts?.[forums[forum.toLowerCase() as Forum]]?.rank ?? 0;
     },
   },
   // --- Misc ---
