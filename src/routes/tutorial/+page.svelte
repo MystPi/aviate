@@ -23,13 +23,13 @@
     </p>
     <Codeblock code="I 💖 Aviate!" />
     <p>That is a full Aviate status, if a boring one. Let's make it more interesting:</p>
-    <Codeblock code={`I have {followers} followers and {posts total} forum posts!`} />
+    <Codeblock code={`I have {followers} followers and {postcount} forum posts!`} />
     <p>
       Those things in braces (the <code>{'{'}</code> and <code>}</code>) are called
       <em>components</em>. They are what make Aviate special! Although that was a simple example,
       components can actually be a bit more complex:
     </p>
-    <Codeblock code={`{round {percent {posts at} {posts total}} 1}% of my posts are in the ATs.`} />
+    <Codeblock code={`{round {percent {posts at} {postcount}} 1}% of my posts are in the ATs.`} />
     <p>Phew! That was a mouthful. I'll explain each part next.</p>
 
     <h2>Components</h2>

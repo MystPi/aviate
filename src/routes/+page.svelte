@@ -35,7 +35,7 @@
   <p
     class="overflow-hidden whitespace-nowrap bg-gradient-to-r from-transparent via-slate-900 bg-clip-text font-mono text-sm text-transparent"
   >
-    {'{followers} {rank loves} {posts total} {random 1 100} {country} {joke} {add 2 {mul 4 7}} {round {percent {posts at} {posts}} 1}'}
+    {'{followers} {rank loves} {postcount} {random 1 100} {country} {joke} {add 2 {mul 4 7}} {round {percent {posts at} {postcount}} 1}'}
   </p>
 
   <div class="flex items-center gap-6">
