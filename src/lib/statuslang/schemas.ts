@@ -59,7 +59,7 @@ export function assertCategory(value: any): asserts value is Category {
 }
 
 export function assertForum(value: any): asserts value is Forum {
-  if (!Object.keys(forums).includes(value.toLowerCase())) {
+  if (!Object.keys(forums).includes(value.toLowerCase ? value.toLowerCase() : value)) {
     throw new Error(`Invalid forum: ${value}`);
   }
 }
