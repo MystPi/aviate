@@ -52,9 +52,7 @@ export class Evaluator<S> {
     }
 
     if (component.args && component.args.length !== node.args.length) {
-      throw new Error(
-        `Component '${node.name}' was given wrong number of arguments`
-      );
+      throw new Error(`Component '${node.name}' was given wrong number of arguments`);
     }
 
     if (component.control) {
