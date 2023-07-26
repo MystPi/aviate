@@ -11,6 +11,7 @@
   <span slot="subtitle">
     Feel free to ask any other questions on Aviate's <a
       href="https://scratch.mit.edu/discuss/topic/594464"
+      target="_blank"
       class="font-medium underline">forum topic</a
     >.
   </span>
@@ -20,12 +21,12 @@
   <Prose>
     <h2>What should I do if I find an inappropriate status?</h2>
     <p>
-      Please report it on an <a href="/admins">admin</a>&#39;s profile and they will delete the
-      user&#39;s status. Alternatively, you can click the &#39;feedback&#39; link at the top of the
-      page then click &#39;other&#39; and report the status.
+      Please report it on <a href="https://scratch.mit.edu/users/NFlex23#comments" target="_blank"
+        >NFlex23's profile</a
+      > and he will deal with the user accordingly.
     </p>
 
-    <h2>What is the endpoint for fetching a user&#39;s status?</h2>
+    <h2>What is the endpoint for fetching a user's status?</h2>
     <p>
       Send a <code>GET</code> request to <code>/api/[user]</code>, replacing
       <code>[user]</code> with a username.
@@ -39,32 +40,32 @@
 
     <h2>Can everyone see my status?</h2>
     <p>
-      Yes, everyone can see your status and its code, so please don&#39;t put personal information
-      or anything inappropriate for Scratch in it.
+      Yes, everyone can see your status and its code, so please don't put personal information or
+      anything inappropriate for Scratch in it.
     </p>
 
-    <h2>Why does my status say &quot;requested data not available right now&quot;?</h2>
-    <p>There are three possible reasons for this error:</p>
+    <h2>
+      Some components are returning 0, or I get the message "requested data not available right
+      now." Why does this happen?
+    </h2>
+    <p>Don't worry; this can happen for a few reasons.</p>
     <ol>
-      <li>You tried to use a forum-related component when you have never posted on the forums</li>
       <li>
-        You haven&#39;t had your statistics indexed yet and you used a component that uses
-        statistics. The most common reason that
-        <a href="https://scratchdb.lefty.one/v3/docs/">ScratchDB</a> hasn&#39;t indexed you is that you
-        have less than 10 followers.
+        The most common issue is that <a href="https://scratchdb.lefty.one/v3/docs/" target="_blank"
+          >ScratchDB</a
+        > is currently down. It will come back up, but it may take some time. This affects everyone's
+        status, not just yours.
       </li>
       <li>
-        ScratchDB is currently down. This happens a lot, but it&#39;s usually fixed within an hour
-        or so.
+        You tried to use a forum-related component when you have never posted on the forums. Try
+        removing the component to see if it's the culprit.
+      </li>
+      <li>
+        You used a component that relies on statistics, but ScratchDB hasn't indexed you yet because
+        you have less than 10 followers. This is something that Aviate can't change, so you will
+        have to wait until you gain more followers to use that component. In the meantime, you can
+        explore other components that don't depend on statistics and still create a great status!
       </li>
     </ol>
-
-    <h2>Is there Scratch integration?</h2>
-    <p>
-      Yes! There are actually two browser extensions that do just that. The better extension of the
-      two is called ScratchTools, and it also has a lot of other features other than Aviate
-      integration. The second is made by me, and it can be found on GitHub at
-      MystPi/aviate-integration.
-    </p>
   </Prose>
 </main>
