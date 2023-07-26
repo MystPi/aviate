@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-y-scroll text-slate-900;
+  }
+}
+
+@layer utilities {
+  .brand-gradient {
+    @apply from-teal-500 via-cyan-500 to-violet-500;
+  }
+
+  .gradient-shadow {
+    @apply before:brand-gradient relative before:absolute before:inset-0.5 before:-z-10 before:translate-y-1 before:bg-gradient-to-br before:blur-sm;
+  }
+
+  .gradient-border {
+    @apply before:brand-gradient relative before:absolute before:-inset-0.5 before:-z-10 before:rounded-lg before:bg-gradient-to-br;
+  }
+
+  .gradient-text {
+    @apply brand-gradient bg-gradient-to-r bg-clip-text text-transparent;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
