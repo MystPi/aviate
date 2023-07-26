@@ -23,33 +23,16 @@ export interface Database {
           username?: string;
         };
       };
-      sessions: {
-        Row: {
-          id: string;
-          username: string | null;
-        };
-        Insert: {
-          id: string;
-          username?: string | null;
-        };
-        Update: {
-          id?: string;
-          username?: string | null;
-        };
-      };
       users: {
         Row: {
-          is_admin: boolean | null;
           status: string | null;
           username: string;
         };
         Insert: {
-          is_admin?: boolean | null;
           status?: string | null;
           username: string;
         };
         Update: {
-          is_admin?: boolean | null;
           status?: string | null;
           username?: string;
         };
