@@ -1,4 +1,3 @@
-import { ComponentNotFoundError, InvalidArgumentError } from './errors';
 import type { AstNode, ComponentAstNode, LiteralType, ValueAstNode } from './parser_ast';
 
 type MaybePromise<T> = T | Promise<T>;
@@ -49,11 +48,11 @@ export class Evaluator<S> {
     const component = this.components[node.name];
 
     if (!component) {
-      throw new ComponentNotFoundError(`Component '${node.name}' not found`);
+      throw new Error(`Component '${node.name}' not found`);
     }
 
     if (component.args && component.args.length !== node.args.length) {
-      throw new InvalidArgumentError(
+      throw new Error(
         `Component '${node.name}' was given wrong number of arguments`
       );
     }

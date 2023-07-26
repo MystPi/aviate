@@ -1,5 +1,4 @@
 import { type Forum, type Forums, type Category, categories, forums } from './consts';
-import { InvalidArgumentError } from './errors';
 import { z } from 'zod';
 
 // --- Zod Schemas ---
@@ -55,18 +54,18 @@ export const ForumUser = z.object({
 
 export function assertCategory(value: any): asserts value is Category {
   if (!categories.includes(value)) {
-    throw new InvalidArgumentError(`Invalid category: ${value}`);
+    throw new Error(`Invalid category: ${value}`);
   }
 }
 
 export function assertForum(value: any): asserts value is Forum {
   if (!Object.keys(forums).includes(value)) {
-    throw new InvalidArgumentError(`Invalid forum: ${value}`);
+    throw new Error(`Invalid forum: ${value}`);
   }
 }
 
 export function assertNumber(value: any): asserts value is number {
   if (typeof value !== 'number') {
-    throw new InvalidArgumentError(`Invalid number: ${value}`);
+    throw new Error(`Invalid number: ${value}`);
   }
 }

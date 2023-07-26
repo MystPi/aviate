@@ -1,4 +1,3 @@
-import { DataNotAvailableError } from './errors';
 import type { z } from 'zod';
 
 export type DataSources<D> = Record<string, DataSource<D>>;
@@ -39,7 +38,7 @@ export class DataFetcher<T extends DataSources<D>, D> {
     try {
       json = source.schema.parse(await this.fetchWithTimeout(source.url(this.urlData)));
     } catch {
-      throw new DataNotAvailableError('Requested data is not available right now');
+      throw new Error('Requested data is not available right now');
     }
 
     this.cache.set(key, json);
