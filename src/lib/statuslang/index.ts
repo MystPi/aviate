@@ -180,58 +180,58 @@ export const components = {
   id: {
     args: [],
     description: 'Get your ID',
-    func: async (_, { data }) => (await data.get('userdata')).id,
+    func: (_, { data }) => data.get('userdata', 0, ['id']),
   },
   country: {
     args: [],
     description: 'Get your country',
-    func: async (_, { data }) => (await data.get('userdata')).country,
+    func: (_, { data }) => data.get('userdata', '', ['country']),
   },
   status: {
     args: [],
     description: "Your status on Scratch, e.g., 'Scratcher'",
-    func: async (_, { data }) => (await data.get('userdata')).status,
+    func: (_, { data }) => data.get('userdata', '', ['status']),
   },
   followers: {
     args: [],
     description: 'Get your followers. A shorter way of saying `{amount followers}`',
-    func: async (_, { data }) => (await data.get('userdata')).statistics?.followers ?? 0,
+    func: (_, { data }) => data.get('userdata', 0, ['statistics', 'followers']),
   },
   amount: {
     args: ['category'],
     description: 'Get your total amount of a category (loves, comments, etc.)',
-    func: async ([category], { data }) => {
+    func: ([category], { data }) => {
       assertCategory(category);
-      return (await data.get('userdata')).statistics?.[category] ?? 0;
+      return data.get('userdata', 0, ['statistics', category]);
     },
   },
   rank: {
     args: ['category'],
     description: 'Get your rank in a category',
-    func: async ([category], { data }) => {
+    func: ([category], { data }) => {
       assertCategory(category);
-      return (await data.get('userdata')).statistics?.ranks?.[category] ?? 0;
+      return data.get('userdata', 0, ['statistics', 'ranks', category]);
     },
   },
   postcount: {
     args: [],
     description: 'Get your post count. A shorter way of saying `{posts total}`',
-    func: async (_, { data }) => (await data.get('forumdata')).counts?.total?.count ?? 0,
+    func: (_, { data }) => data.get('forumdata', 0, ['counts', 'total', 'count']),
   },
   posts: {
     args: ['forum'],
     description: 'Get your post count in a forum. Use `total` to get the total number of posts',
-    func: async ([forum], { data }) => {
+    func: ([forum], { data }) => {
       assertForum(forum);
-      return (await data.get('forumdata')).counts?.[forums[forum.toLowerCase() as Forum]]?.count ?? 0;
+      return data.get('forumdata', 0, ['counts', forums[forum.toLowerCase() as Forum], 'count']);
     },
   },
   forumrank: {
     args: ['forum'],
     description: 'Get your rank in a forum',
-    func: async ([forum], { data }) => {
+    func: ([forum], { data }) => {
       assertForum(forum);
-      return (await data.get('forumdata')).counts?.[forums[forum.toLowerCase() as Forum]]?.rank ?? 0;
+      return data.get('forumdata', 0, ['counts', forums[forum.toLowerCase() as Forum], 'rank']);
     },
   },
   // --- Misc ---

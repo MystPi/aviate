@@ -1,4 +1,5 @@
 import type { z } from 'zod';
+import type { LiteralType } from './parser_ast';
 
 export type DataSources<D> = Record<string, DataSource<D>>;
 
@@ -27,21 +28,33 @@ export class DataFetcher<T extends DataSources<D>, D> {
     return res.json();
   }
 
-  async get<K extends keyof T>(key: K): Promise<z.infer<T[K]['schema']>> {
+  async get(key: keyof T, def: LiteralType, path: string[]): Promise<LiteralType> {
     if (this.cache.has(key)) {
-      return this.cache.get(key);
+      return this.path(this.cache.get(key), def, path);
+    } else {
+      const source = this.sources[key];
+
+      try {
+        const json = source.schema.parse(await this.fetchWithTimeout(source.url(this.urlData)));
+        this.cache.set(key, json);
+        return this.path(json, def, path);
+      } catch {
+        throw new Error('Requested data is not available right now');
+      }
+    }
+  }
+
+  private path(obj: any, def: LiteralType, path: string[]) {
+    let result = obj;
+
+    for (const p of path) {
+      if (p in result) {
+        result = result[p];
+      } else {
+        result = def;
+      }
     }
 
-    const source = this.sources[key];
-    let json: unknown;
-
-    try {
-      json = source.schema.parse(await this.fetchWithTimeout(source.url(this.urlData)));
-    } catch {
-      throw new Error('Requested data is not available right now');
-    }
-
-    this.cache.set(key, json);
-    return json;
+    return result;
   }
 }
