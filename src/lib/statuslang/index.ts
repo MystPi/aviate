@@ -118,6 +118,26 @@ export const components = {
       return (a / b) * 100;
     },
   },
+  ordinal: {
+    args: ['number'],
+    description: 'Returns the ordinal version of a number. 1st, 32nd, 53rd, etc.',
+    func: ([number]) => {
+      assertNumber(number);
+      const j = number % 10;
+      const k = number % 100;
+      let suffix = 'th';
+      if (j == 1 && k != 11) {
+        suffix = 'st';
+      }
+      if (j == 2 && k != 12) {
+        suffix = 'nd';
+      }
+      if (j == 3 && k != 13) {
+        suffix = 'rd';
+      }
+      return `${number}${suffix}`;
+    },
+  },
   round: {
     args: ['a', 'b'],
     description: 'Rounds a to the given number of decimal places',
