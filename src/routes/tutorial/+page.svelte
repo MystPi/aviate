@@ -65,6 +65,11 @@
         <code>"Hello, there"</code> does.
       </li>
       <li>
+        Booleans, like <code>true</code> or <code>false</code>. You won't normaly use Booleans
+        directly, instead components such as <code>less</code> or <code>not</code> will produce them,
+        and the <code>if</code> component takes one to decide which value to return.
+      </li>
+      <li>
         Other components that result in a value. This allows you to <em>nest</em>
         components—putting one component inside of another. For example, since
         <code>{'{followers}'}</code>
