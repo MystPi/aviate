@@ -2,9 +2,9 @@
   import NProgress from 'nprogress';
   import { navigating, page } from '$app/stores';
   import { Button } from '$lib/components';
-  import '@fontsource/outfit/variable.css';
-  import '@fontsource/jetbrains-mono/variable.css';
-  import '@fontsource/lexend/variable.css';
+  import '@fontsource-variable/outfit';
+  import '@fontsource-variable/jetbrains-mono';
+  import '@fontsource-variable/lexend';
   import '../app.css';
   import '../nprogress.css';
 
