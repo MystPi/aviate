@@ -9,6 +9,15 @@ export async function getStatus(username: string) {
   return data?.[0]?.status ?? null;
 }
 
+export async function getStatusInsensitive(username: string) {
+  const { data } = await supabase
+    .from('users')
+    .select()
+    .ilike('username', username.replace(/(_|%)/g, '\\$1'));
+
+  return data?.[0]?.status ?? null;
+}
+
 export async function setStatus(username: string, status: string) {
   const { data } = await supabase.from('users').select('status').eq('username', username);
   if (!data?.length) return false;
