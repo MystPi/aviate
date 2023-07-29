@@ -8,6 +8,7 @@
 <svelte:element
   this={type}
   type={nosubmit ? 'button' : null}
+  role={type === 'button' ? 'button' : 'link'}
   {...$$restProps}
   class:gradient-shadow={color === 'hero'}
   class="{color} {variant} {$$props.class ?? ''}"

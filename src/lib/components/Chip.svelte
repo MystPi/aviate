@@ -4,6 +4,7 @@
 </script>
 
 <span
+  role={clickable ? 'button' : undefined}
   {...$$restProps}
   class="{color} {clickable ? 'cursor-pointer' : ''} {$$props.class ?? ''}"
   on:click
