@@ -36,3 +36,10 @@ export async function getUserCount() {
   const { count } = await supabase.from('users').select('*', { count: 'planned', head: true });
   return count ?? 0;
 }
+
+export async function report(reportedBy: string, user: string) {
+  const { data } = await supabase.from('users').select('username').eq('username', user);
+  if (!data?.length) return false;
+  await supabase.from('reports').insert({ reported_by: reportedBy, user });
+  return true;
+}

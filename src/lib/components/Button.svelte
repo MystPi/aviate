@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let color: 'slate' | 'teal' | 'cyan' | 'violet' | 'hero' = 'slate';
+  export let color: 'slate' | 'teal' | 'cyan' | 'violet' | 'rose' | 'hero' = 'slate';
   export let variant: 'normal' | 'rounded' = 'normal';
   export let type: 'button' | 'a' = 'button';
   export let nosubmit = false;
@@ -37,6 +37,10 @@
 
   .violet {
     @apply border-violet-500 bg-violet-50 text-violet-600 hover:bg-violet-100;
+  }
+
+  .rose {
+    @apply border-rose-500 bg-rose-50 text-rose-600 hover:bg-rose-100;
   }
 
   .hero {

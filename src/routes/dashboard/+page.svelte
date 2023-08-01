@@ -43,7 +43,7 @@
   async function getOcular() {
     loadingStatus = Status.Loading;
     const res = await fetch(
-      `https://my-ocular.jeffalo.net/api/user/${data.username}?noReplace=true`
+      `https://my-ocular.jeffalo.net/api/user/${data.username}?noReplace=true`,
     );
     const json = await res.json();
     loadingStatus = Status.Success;
@@ -124,9 +124,8 @@
       and section 3.1 to 3.5 of Scratch's
       <a href="https://scratch.mit.edu/terms_of_use">Terms of Use</a>. In short, your status must
       contain content that is safe for Scratch. If you find a status breaking the rules, please
-      reach out to
-      <a href="https://scratch.mit.edu/users/NFlex23#comments" target="_blank">NFlex23</a> on Scratch
-      and he will deal with the violator. Thank you for helping to keep Aviate safe for all ages!
+      <a href="/report">report the user</a> who it belongs to. Thank you for helping to keep Aviate safe
+      for all ages!
     </p>
   </Prose>
 </main>

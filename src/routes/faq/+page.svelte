@@ -21,9 +21,7 @@
   <Prose>
     <h2>What should I do if I find an inappropriate status?</h2>
     <p>
-      Please report it on <a href="https://scratch.mit.edu/users/NFlex23#comments" target="_blank"
-        >NFlex23's profile</a
-      > and he will deal with the user accordingly.
+      Please <a href="/report">report the user</a> who it belongs to.
     </p>
 
     <h2>What is the endpoint for fetching a user's status?</h2>
