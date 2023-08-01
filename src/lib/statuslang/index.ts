@@ -138,6 +138,14 @@ export const components = {
       return `${number}${suffix}`;
     },
   },
+  sep: {
+    args: ['number'],
+    description: 'Formats a number with commas',
+    func: ([number]) => {
+      assertNumber(number);
+      return number.toLocaleString('en');
+    }
+  },
   round: {
     args: ['a', 'b'],
     description: 'Rounds a to the given number of decimal places',
