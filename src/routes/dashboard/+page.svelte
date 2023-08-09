@@ -1,5 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import { beforeNavigate } from '$app/navigation';
   import {
     Seo,
     PageHeader,
@@ -33,6 +34,15 @@
     confetti({ origin: { x: 0, y: 1 }, angle: 45 });
     confetti({ origin: { x: 1, y: 1 }, angle: 135 });
   }
+
+  beforeNavigate(({ cancel }) => {
+    if (
+      data.status !== value &&
+      !window.confirm('Are you sure you want to leave? Your status has not been saved.')
+    ) {
+      cancel();
+    }
+  });
 
   async function runStatus() {
     loadingStatus = Status.Loading;
@@ -77,7 +87,21 @@
           <Button on:click={runStatus} nosubmit color="violet" title="Test run your status">
             Run <Play />
           </Button>
-          <Button color="teal" title="Set your status">Set <Checkmark /></Button>
+          <div class="relative">
+            {#if data.status !== value}
+              <div
+                transition:fade={{ duration: 100 }}
+                class="w-3 h-3 bg-teal-500 rounded-full absolute -right-1 -top-1 opacity-50"
+              ></div>
+            {/if}
+            <Button
+              color="teal"
+              title="Save your status"
+              class={data.status !== value ? '!shadow-md' : ''}
+            >
+              Save <Checkmark />
+            </Button>
+          </div>
           <div class="hidden flex-1 border border-slate-200 sm:block" />
           <a
             href="/tutorial"
