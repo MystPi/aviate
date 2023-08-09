@@ -45,7 +45,7 @@ export function highlight(text: string, charsLeft?: boolean) {
       if (depth === 1) {
         s.appendRight(
           start,
-          '<span class="rounded shadow outline-dashed outline-1 outline-slate-400">'
+          '<span class="rounded shadow outline-dashed outline-1 outline-slate-400">',
         );
       }
     } else if (type === 'RBrace' && depth) {
