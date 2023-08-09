@@ -23,14 +23,14 @@
     <form
       use:enhance
       method="post"
-      class="rounded-md border-slate-300 bg-white p-3 shadow-lg space-y-3 w-fit"
+      class="rounded-md border border-slate-700 bg-slate-900 p-3 shadow-lg space-y-3 w-fit"
     >
       <input
         type="text"
         placeholder="Username"
         name="user"
         required
-        class="block rounded-md border border-slate-300 bg-white px-4 py-1 shadow-inner outline-none transition focus:ring"
+        class="block rounded-md border border-slate-700 bg-slate-800 px-4 py-1 shadow-inner outline-none transition focus:ring"
       />
       <Button color="rose" class="w-full">Submit for review</Button>
     </form>

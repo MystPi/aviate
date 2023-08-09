@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
   body {
-    @apply overflow-y-scroll text-slate-900;
+    @apply overflow-y-scroll bg-slate-950 text-slate-300;
   }
 }
 

@@ -54,12 +54,12 @@
           href={route[1]}
           class="{$page.url.pathname === route[1]
             ? 'underline'
-            : ''} decoration-teal-500 underline-offset-2 transition hover:scale-105">{route[0]}</a
+            : ''} text-slate-300 decoration-teal-500 underline-offset-2 transition hover:scale-105">{route[0]}</a
         >
       {/each}
       <div class="flex gap-3 sm:ml-auto">
         {#each conditionalRoutes as route}
-          <Button href={route[1]} type="a" variant="rounded" class="!bg-white hover:!bg-slate-50">
+          <Button href={route[1]} type="a" variant="rounded">
             {route[0]}
           </Button>
         {/each}

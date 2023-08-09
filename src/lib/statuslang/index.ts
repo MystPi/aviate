@@ -144,7 +144,7 @@ export const components = {
     func: ([number]) => {
       assertNumber(number);
       return number.toLocaleString('en');
-    }
+    },
   },
   round: {
     args: ['a', 'b'],

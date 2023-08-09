@@ -10,7 +10,7 @@
   type={nosubmit ? 'button' : null}
   role={type === 'button' ? 'button' : 'link'}
   {...$$restProps}
-  class:gradient-shadow={color === 'hero'}
+  class:gradient-border={color === 'hero'}
   class="{color} {variant} {$$props.class ?? ''}"
   on:click
 >
@@ -24,27 +24,27 @@
   }
 
   .slate {
-    @apply border-slate-500 bg-slate-50 text-slate-600 hover:bg-slate-100;
+    @apply border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800;
   }
 
   .teal {
-    @apply border-teal-500 bg-teal-50 text-teal-600 hover:bg-teal-100;
+    @apply border-teal-700 bg-teal-900 text-teal-300 hover:bg-teal-800;
   }
 
   .cyan {
-    @apply border-cyan-500 bg-cyan-50 text-cyan-600 hover:bg-cyan-100;
+    @apply border-cyan-700 bg-cyan-900 text-cyan-300 hover:bg-cyan-800;
   }
 
   .violet {
-    @apply border-violet-500 bg-violet-50 text-violet-600 hover:bg-violet-100;
+    @apply border-violet-700 bg-violet-900 text-violet-300 hover:bg-violet-800;
   }
 
   .rose {
-    @apply border-rose-500 bg-rose-50 text-rose-600 hover:bg-rose-100;
+    @apply border-rose-700 bg-rose-900 text-rose-300 hover:bg-rose-800;
   }
 
   .hero {
-    @apply border-black bg-white shadow-none hover:bg-slate-100;
+    @apply bg-slate-800 text-slate-300 border-none hover:bg-slate-900;
   }
 
   .rounded {

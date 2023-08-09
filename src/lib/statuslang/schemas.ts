@@ -43,8 +43,8 @@ export const ForumUser = z.object({
           ...prev,
           [forums[curr as Forum]]: ForumData,
         }),
-        {}
-      ) as Record<Forums[Forum], typeof ForumData>
+        {},
+      ) as Record<Forums[Forum], typeof ForumData>,
     )
     .partial()
     .optional(),

@@ -29,7 +29,7 @@ export const GET = async ({ url, cookies }) => {
   }
 
   const res = await fetch(
-    'https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode=' + privateCode
+    'https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode=' + privateCode,
   );
   const json = (await res.json()) as ScratchAuthResponse;
 

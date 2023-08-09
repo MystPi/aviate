@@ -23,17 +23,17 @@
 />
 
 <header class="mb-10 space-y-3 sm:mb-16">
-  <h1 class="font-display text-4xl tracking-tighter sm:text-5xl">
+  <h1 class="font-display text-slate-200 text-4xl tracking-tighter sm:text-5xl">
     Welcome to <span class="gradient-text">Aviate!</span>
   </h1>
-  <h2 class="sm:text-lg">
+  <h2 class="text-slate-300 sm:text-lg ">
     Use your imagination to create <strong title="🎈" class="highlighted">fun</strong> and
     <strong title="🔮" class="highlighted">magical</strong> statuses, then use them on Scratch (and across
     the web!) with a simple API.
   </h2>
 
   <p
-    class="overflow-hidden whitespace-nowrap bg-gradient-to-r from-transparent via-slate-900 bg-clip-text font-mono text-sm text-transparent"
+    class="overflow-hidden whitespace-nowrap bg-gradient-to-r from-transparent via-slate-100 bg-clip-text font-mono text-sm text-transparent"
   >
     {'{followers} {rank loves} {postcount} {random 1 100} {country} {joke} {add 2 {mul 4 7}} {round {percent {posts at} {postcount}} 1}'}
   </p>
@@ -51,16 +51,16 @@
   <h2 class="text-2xl">Find a status</h2>
   <form
     on:submit|preventDefault={() => goto(`/api/${usernameSearch}`)}
-    class="gradient-shadow flex divide-x divide-black rounded-md border border-black"
+    class="border border-slate-700 flex divide-x divide-slate-700 rounded-md"
   >
     <input
       type="text"
-      class="min-w-0 flex-1 rounded-l-md bg-white px-4 py-1 shadow-inner outline-none transition focus:ring"
+      class="min-w-0 flex-1 rounded-l-md bg-slate-900 px-4 py-1 shadow-inner outline-none transition focus:ring"
       placeholder="Enter a username"
       bind:value={usernameSearch}
     />
     <button
-      class="flex items-center gap-2 rounded-r-md bg-gradient-to-br from-white to-slate-200 px-4"
+      class="flex items-center gap-2 rounded-r-md text-slate-400 px-4"
     >
       <Search /> Search
     </button>

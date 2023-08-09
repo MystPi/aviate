@@ -62,7 +62,7 @@
 
 <main class="grid items-center gap-6 sm:grid-cols-2">
   <div class="relative sm:col-span-2">
-    <div class="gradient-border rounded-md border-slate-300 bg-white p-3 before:shadow-lg">
+    <div class="gradient-border rounded-md bg-slate-900 p-3 before:shadow-lg">
       <form
         use:enhance={() => {
           loadingStatus = Status.Loading;
@@ -78,13 +78,13 @@
             Run <Play />
           </Button>
           <Button color="teal" title="Set your status">Set <Checkmark /></Button>
-          <div class="hidden flex-1 border border-slate-200 sm:block" />
+          <div class="hidden flex-1 border border-slate-700 sm:block" />
           <a
             href="/tutorial"
             class="hidden gap-2 text-slate-400 transition hover:scale-105 sm:flex sm:items-center"
             >Read the tutorial <Book /></a
           >
-          <div class="hidden flex-1 border border-slate-200 sm:block" />
+          <div class="hidden flex-1 border border-slate-700 sm:block" />
           <Chip
             on:click={getOcular}
             clickable={true}
@@ -100,7 +100,7 @@
       {#if statusResult}
         <div
           in:slide
-          class="mt-3 rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-slate-600"
+          class="mt-3 rounded-md border border-slate-700 bg-slate-900 px-4 py-2 text-slate-400"
         >
           {statusResult}
         </div>
@@ -109,7 +109,7 @@
     {#if loadingStatus === Status.Loading}
       <div
         transition:fade={{ duration: 50 }}
-        class="absolute -inset-0.5 z-20 rounded-lg bg-slate-900/10"
+        class="absolute -inset-0.5 z-20 rounded-lg bg-slate-900/50"
       />
     {/if}
   </div>

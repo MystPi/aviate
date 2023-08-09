@@ -21,7 +21,7 @@
 <div class="relative">
   <pre
     bind:this={pre}
-    class="pointer-events-none absolute block h-full w-full overflow-auto whitespace-pre-wrap break-words border border-transparent px-4 py-2 font-mono leading-relaxed [font-variant-ligatures:none]"><code
+    class="pointer-events-none absolute block h-full w-full overflow-auto whitespace-pre-wrap break-words bg-slate-800 rounded-md border border-transparent px-4 py-2 font-mono leading-relaxed [font-variant-ligatures:none]"><code
       >{@html highlighted}</code
     ></pre>
 
@@ -34,6 +34,6 @@
     autocomplete="off"
     spellcheck="false"
     maxlength="200"
-    class="relative z-10 block w-full rounded-md border border-slate-300 bg-transparent px-4 py-2 font-mono leading-relaxed text-transparent caret-black shadow-inner outline-none transition focus:ring"
+    class="relative z-10 block w-full rounded-md border border-slate-700 bg-transparent px-4 py-2 font-mono leading-relaxed text-transparent caret-slate-300 shadow-inner outline-none transition focus:ring"
   />
 </div>

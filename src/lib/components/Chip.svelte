@@ -18,7 +18,7 @@
   }
 
   .neutral {
-    @apply border-slate-500 bg-slate-100 text-slate-600;
+    @apply bg-slate-800 border-slate-700 text-slate-300;
   }
 
   .success {
