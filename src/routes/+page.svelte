@@ -1,21 +1,12 @@
 <script lang="ts">
   import { Seo, Button } from '$lib/components';
   import { Search, Rocket } from '$lib/icons';
+  import { annotate } from '$lib/annotate';
   import { goto } from '$app/navigation';
-  import { annotate, annotationGroup } from 'rough-notation';
-  import { onMount } from 'svelte';
 
   export let data;
 
   let usernameSearch = '';
-
-  onMount(() =>
-    annotationGroup(
-      [...document.querySelectorAll('.highlighted')].map((e) =>
-        annotate(e as HTMLElement, { type: 'highlight', color: 'rgb(139, 92, 246, 0.2)' })
-      )
-    ).show()
-  );
 </script>
 
 <Seo
@@ -27,8 +18,8 @@
     Welcome to <span class="gradient-text">Aviate!</span>
   </h1>
   <h2 class="sm:text-lg">
-    Use your imagination to create <strong title="🎈" class="highlighted">fun</strong> and
-    <strong title="🔮" class="highlighted">magical</strong> statuses, then use them on Scratch (and across
+    Use your imagination to create <strong title="🎈" use:annotate={500}>fun</strong> and
+    <strong title="🔮" use:annotate={1500}>magical</strong> statuses, then use them on Scratch (and across
     the web!) with a simple API.
   </h2>
 
