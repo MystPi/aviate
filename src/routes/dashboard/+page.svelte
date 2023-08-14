@@ -152,4 +152,15 @@
       for all ages!
     </p>
   </Prose>
+
+  <details class="space-y-3 col-span-2">
+    <summary class="cursor-pointer select-none">Dynamic image</summary>
+    <p>
+      This is your dynamic image link. You can customize its width, height, and whether it uses a
+      dark theme:
+    </p>
+    <a href="/api/{data.username}/image?width=800&height=58&dark=false" class="underline font-mono"
+      >https://aviate.scratchers.tech/api/{data.username}/image?width=800&height=58&dark=false</a
+    >
+  </details>
 </main>
