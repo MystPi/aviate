@@ -37,5 +37,12 @@ export const GET = async ({ fetch, url, params }) => {
     </div>
   `;
 
-  return toSvg(html, width, height, fontData);
+  const svg = await toSvg(html, width, height, fontData);
+
+  return new Response(svg, {
+    headers: {
+      'content-type': 'image/svg+xml',
+      'cache-control': 'max-age=120, s-maxage=120'
+    },
+  });
 };
