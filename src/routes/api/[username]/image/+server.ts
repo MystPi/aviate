@@ -5,7 +5,7 @@ export const GET = async ({ fetch, url, params }) => {
   const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
   const width = Number(url.searchParams.get('width')) || 400;
-  const height = Number(url.searchParams.get('height')) || 50;
+  const height = Number(url.searchParams.get('height')) || 58;
 
   const res = await fetch(`/api/${params.username}`);
   const json = await res.json();
