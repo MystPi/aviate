@@ -21,7 +21,7 @@ export const GET = async ({ fetch, url, params }) => {
     ? `
     <div tw="flex p-4 rounded-md border border-slate-700 items-center bg-slate-900">
       <img tw="w-6 h-6" src="https://aviate.scratchers.tech/favicon.svg" />
-      <div tw="flex flex-col ml-4">
+      <div tw="flex flex-col ml-4 flex-1">
         <p tw="m-0 text-slate-400 text-xs">${params.username}'s status</p>
         <p tw="m-0 text-slate-50 text-sm">${status}</p>
       </div>
@@ -30,7 +30,7 @@ export const GET = async ({ fetch, url, params }) => {
     : `
     <div tw="flex p-4 rounded-md border border-slate-300 items-center bg-white">
       <img tw="w-6 h-6" src="https://aviate.scratchers.tech/favicon.svg" />
-      <div tw="flex flex-col ml-4">
+      <div tw="flex flex-col ml-4 flex-1">
         <p tw="m-0 text-slate-500 text-xs">${params.username}'s status</p>
         <p tw="m-0 text-slate-900 text-sm">${status}</p>
       </div>
