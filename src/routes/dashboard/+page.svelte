@@ -11,7 +11,7 @@
     Prose,
   } from '$lib/components';
   import { run } from '$lib/statuslang';
-  import { Play, Checkmark, Copy, Book, Locked } from '$lib/icons';
+  import { Play, Checkmark, Copy, Book, Locked, ImageCopy } from '$lib/icons';
   import { slide, fade } from 'svelte/transition';
   import confetti from 'canvas-confetti';
 
@@ -153,14 +153,34 @@
     </p>
   </Prose>
 
-  <details class="space-y-3 col-span-2">
-    <summary class="cursor-pointer select-none">Dynamic image</summary>
+  <details class="space-y-3 sm:col-span-2 bg-slate-50 rounded-md border border-slate-300 p-3">
+    <summary class="cursor-pointer select-none flex items-center gap-2">
+      <ImageCopy /> Dynamic image <span class="italic text-slate-500">new!</span>
+    </summary>
     <p>
-      This is your dynamic image link. You can customize its width, height, and whether it uses a
-      dark theme:
+      Aviate now has dynamic images! These let you embed your status into many websites in the form
+      of an image. Here is an example:
     </p>
-    <a href="/api/{data.username}/image?width=800&height=58&dark=false" class="underline font-mono"
-      >https://aviate.scratchers.tech/api/{data.username}/image?width=800&height=58&dark=false</a
-    >
+    <img
+      src="/api/NFlex23/image?width=500&height=90&dark=false"
+      alt="NFlex23's Aviate status"
+      loading="lazy"
+    />
+    <p>
+      Cool, right? Here is your dynamic image link; you can customize its width, height, and whether
+      it uses a dark theme:
+    </p>
+    <p>
+      <a
+        href="/api/{data.username}/image?width=500&height=90&dark=false"
+        class="underline font-mono"
+        >https://aviate.scratchers.tech/api/{data.username}/image?width=500&height=90&dark=false</a
+      >
+    </p>
+    <p>
+      The width and height may take some fiddling to get just right, but in the end you'll have a
+      dynamic image that can be used on your GitHub profile or anywhere else that supports images
+      from external sites.
+    </p>
   </details>
 </main>
