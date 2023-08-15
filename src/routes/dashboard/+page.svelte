@@ -165,6 +165,7 @@
       src="/api/NFlex23/image?width=500&height=90&dark=false"
       alt="NFlex23's Aviate status"
       loading="lazy"
+      class="h-[90px]"
     />
     <p>
       Cool, right? Here is your dynamic image link; you can customize its width, height, and whether
