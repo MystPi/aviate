@@ -34,7 +34,7 @@
       Get started <Rocket class="transition group-hover:rotate-45" />
     </Button>
     <a href="/tutorial">Read the tutorial →</a>
-    <span class="ml-auto"><strong>{data.userCount}</strong> users</span>
+    <span class="ml-auto hidden sm:inline"><strong>{data.userCount}</strong> users</span>
   </div>
 </header>
 
