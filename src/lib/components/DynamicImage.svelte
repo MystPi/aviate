@@ -79,7 +79,10 @@
     </div>
 
     <pre
-      class="border border-slate-300 px-2 py-1 rounded font-mono overflow-x-auto select-all">{#if display === 'url'}https://aviate.scratchers.tech{url}{:else}{html}{/if}</pre>
+      class="border border-slate-300 px-2 py-1 rounded font-mono overflow-x-auto select-all">{display ===
+      'url'
+        ? `https://aviate.scratchers.tech${url}`
+        : html}</pre>
 
     <img
       src={url}
