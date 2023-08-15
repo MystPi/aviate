@@ -9,10 +9,11 @@
     HighlightedTextarea,
     Components,
     Prose,
+    DynamicImage,
   } from '$lib/components';
   import { run } from '$lib/statuslang';
-  import { Play, Checkmark, Copy, Book, Locked, ImageCopy } from '$lib/icons';
   import { slide, fade } from 'svelte/transition';
+  import { Play, Checkmark, Copy, Book, Locked } from 'carbon-icons-svelte';
   import confetti from 'canvas-confetti';
 
   export let data;
@@ -153,35 +154,5 @@
     </p>
   </Prose>
 
-  <details class="space-y-3 sm:col-span-2 bg-slate-50 rounded-md border border-slate-300 p-3">
-    <summary class="cursor-pointer select-none flex items-center gap-2">
-      <ImageCopy /> Dynamic image <span class="italic text-slate-500">new!</span>
-    </summary>
-    <p>
-      Aviate now has dynamic images! These let you embed your status into many websites in the form
-      of an image. Here is an example:
-    </p>
-    <img
-      src="/api/NFlex23/image?width=500&height=90&dark=false"
-      alt="NFlex23's Aviate status"
-      loading="lazy"
-      class="h-[90px]"
-    />
-    <p>
-      Cool, right? Here is your dynamic image link; you can customize its width, height, and whether
-      it uses a dark theme:
-    </p>
-    <p>
-      <a
-        href="/api/{data.username}/image?width=500&height=90&dark=false"
-        class="underline font-mono"
-        >https://aviate.scratchers.tech/api/{data.username}/image?width=500&height=90&dark=false</a
-      >
-    </p>
-    <p>
-      The width and height may take some fiddling to get just right, but in the end you'll have a
-      dynamic image that can be used on your GitHub profile or anywhere else that supports images
-      from external sites.
-    </p>
-  </details>
+  <DynamicImage username={data.username ?? ''} />
 </main>

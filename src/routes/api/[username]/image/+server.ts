@@ -8,8 +8,8 @@ export const GET = async ({ fetch, url, params }) => {
   const fontFile = await fetch('/Inter-Regular.ttf');
   const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
-  const width = Number(url.searchParams.get('width')) || 400;
-  const height = Number(url.searchParams.get('height')) || 70;
+  const width = Number(url.searchParams.get('width')) || 500;
+  const height = Number(url.searchParams.get('height')) || 90;
   const dark = url.searchParams.get('dark') === 'true';
 
   const res = await fetch(`/api/${params.username}`);
