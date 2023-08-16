@@ -13,7 +13,7 @@
   let html = '';
 
   $: {
-    url = `/api/${username}/image?width=${width || 500}&height=${height || 90}&dark=${darkTheme}`;
+    url = `/api/image/${username}?width=${width || 500}&height=${height || 90}&dark=${darkTheme}`;
     html = `<img src="https://aviate.scratchers.tech${url}" style="width:${width || 500}px;height:${
       height || 90
     }px" />`;
