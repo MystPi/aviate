@@ -2,7 +2,7 @@
   import { Seo, Button } from '$lib/components';
   import { annotate } from '$lib/annotate';
   import { goto } from '$app/navigation';
-  import { Search, Rocket } from 'carbon-icons-svelte';
+  import { Search, Rocket } from '$lib/icons';
 
   export let data;
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ImageCopy } from 'carbon-icons-svelte';
+  import { ImageCopy } from '$lib/icons';
 
   export let username: string;
 
