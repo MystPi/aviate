@@ -8,20 +8,22 @@
   let width = 500;
   let height = 90;
   let darkTheme = false;
-  let display: 'html' | 'url' = 'url';
-  let url = '';
-  let html = '';
+  let display: 'html' | 'url' | 'markdown' = 'url';
+  let endpoint: string;
+  let example: string;
 
-  $: {
-    url = `/api/image/${username}?width=${width || 500}&height=${height || 90}&dark=${darkTheme}`;
-    html = `<img src="https://aviate.scratchers.tech${url}" style="width:${width || 500}px;height:${
-      height || 90
-    }px" />`;
+  $: endpoint = `/api/image/${username}?width=${width}&height=${height}&dark=${darkTheme}`;
+  $: if (display === 'url') {
+    example = `https://aviate.scratchers.tech${endpoint}`;
+  } else if (display === 'html') {
+    example = `<img src="https://aviate.scratchers.tech${endpoint}" alt="${username}'s Aviate status" />`;
+  } else {
+    example = `![${username}'s Aviate status](https://aviate.scratchers.tech${endpoint})`;
   }
 
   function updateDimensions() {
-    width = inputWidth;
-    height = inputHeight;
+    width = inputWidth || 500;
+    height = inputHeight || 90;
   }
 </script>
 
@@ -56,6 +58,7 @@
       >
         <option value="url">Image URL</option>
         <option value="html">HTML code</option>
+        <option value="markdown">Markdown</option>
       </select>
       <label>
         Width:
@@ -82,13 +85,13 @@
     </form>
 
     <pre
-      class="border border-slate-300 px-2 py-1 rounded font-mono overflow-x-auto select-all">{display ===
-      'url'
-        ? `https://aviate.scratchers.tech${url}`
-        : html}</pre>
+      class="border border-slate-300 px-2 py-1 rounded font-mono overflow-x-auto select-all">{example}</pre>
 
-    <img src={url} alt="NFlex23's Aviate status" loading="lazy" style="height: {height || 90}px" />
+    <img src={endpoint} alt="NFlex23's Aviate status" loading="lazy" style="height: {height}px" />
 
-    <p class="italic text-sm text-slate-500">You may have to hard reload (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>) if you update your status</p>
+    <p class="italic text-sm text-slate-500">
+      You may have to hard reload (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>) if you update
+      your status
+    </p>
   </details>
 </section>
