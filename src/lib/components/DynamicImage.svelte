@@ -36,8 +36,8 @@
     Aviate now has <em>dynamic images</em>. They let you embed your status into many websites in the
     form of an image. The width and height may take some fiddling to get just right, but in the end
     you'll have a dynamic image that can be used on your GitHub profile or anywhere else that
-    supports images from external sites. Emojis are sadly unsupported at the moment, and will display as
-    a black shape.
+    supports images from external sites. Due to technical limitations, emojis are not supported and
+    will be removed.
   </p>
 
   <hr class="border-slate-200" />

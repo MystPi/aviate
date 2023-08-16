@@ -1,7 +1,8 @@
 import { toSvg } from '$lib/image';
+import { strip } from 'node-emoji';
 
-function escape(html: string) {
-  return html.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function sanitize(html: string) {
+  return strip(html.replace(/&/g, '&amp;').replace(/</g, '&lt;'));
 }
 
 export const GET = async ({ fetch, url, params }) => {
@@ -15,7 +16,7 @@ export const GET = async ({ fetch, url, params }) => {
   const res = await fetch(`/api/${params.username}`);
   const json = await res.json();
 
-  const status = escape(json.status);
+  const status = sanitize(json.status);
 
   const html = dark
     ? `
