@@ -88,5 +88,7 @@
         : html}</pre>
 
     <img src={url} alt="NFlex23's Aviate status" loading="lazy" style="height: {height || 90}px" />
+
+    <p class="italic text-sm text-slate-500">You may have to hard reload (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>) if you update your status</p>
   </details>
 </section>
