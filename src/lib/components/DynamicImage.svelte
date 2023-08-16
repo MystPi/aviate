@@ -1,9 +1,10 @@
 <script lang="ts">
   import { ImageCopy } from 'carbon-icons-svelte';
-  import type { ChangeEventHandler } from 'svelte/elements';
 
   export let username: string;
 
+  let inputWidth: number;
+  let inputHeight: number;
   let width = 500;
   let height = 90;
   let darkTheme = false;
@@ -18,13 +19,10 @@
     }px" />`;
   }
 
-  const updateWidth: ChangeEventHandler<HTMLInputElement> = (e) => {
-    width = Number((e.target as HTMLInputElement).value);
-  };
-
-  const updateHeight: ChangeEventHandler<HTMLInputElement> = (e) => {
-    height = Number((e.target as HTMLInputElement).value);
-  };
+  function updateDimensions() {
+    width = inputWidth;
+    height = inputHeight;
+  }
 </script>
 
 <section
@@ -46,7 +44,11 @@
   <details class="space-y-3">
     <summary class="cursor-pointer select-none">Image playground</summary>
 
-    <div class="flex gap-3 md:items-center flex-col md:flex-row">
+    <form
+      class="flex gap-3 md:items-center flex-col md:flex-row"
+      on:submit|preventDefault
+      on:change={updateDimensions}
+    >
       <select
         class="border border-slate-300 rounded px-2 py-1 outline-none transition focus:ring"
         bind:value={display}
@@ -60,7 +62,7 @@
           class="border border-slate-300 rounded px-2 w-16 outline-none transition focus:ring"
           type="number"
           placeholder="500"
-          on:change={updateWidth}
+          bind:value={inputWidth}
         />
       </label>
       <label>
@@ -69,14 +71,14 @@
           class="border border-slate-300 rounded px-2 w-16 outline-none transition focus:ring"
           type="number"
           placeholder="90"
-          on:change={updateHeight}
+          bind:value={inputHeight}
         />
       </label>
       <label>
         Dark theme:
         <input type="checkbox" bind:checked={darkTheme} />
       </label>
-    </div>
+    </form>
 
     <pre
       class="border border-slate-300 px-2 py-1 rounded font-mono overflow-x-auto select-all">{display ===
@@ -84,12 +86,6 @@
         ? `https://aviate.scratchers.tech${url}`
         : html}</pre>
 
-    <img
-      src={url}
-      alt="NFlex23's Aviate status"
-      loading="lazy"
-      class="transition"
-      style="height: {height || 90}px"
-    />
+    <img src={url} alt="NFlex23's Aviate status" loading="lazy" style="height: {height || 90}px" />
   </details>
 </section>
