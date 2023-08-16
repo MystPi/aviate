@@ -1,14 +1,14 @@
 import { toSvg } from '$lib/image';
 import { strip } from 'node-emoji';
 
+const fontFile = await fetch('https://rsms.me/inter/font-files/Inter-Regular.woff');
+const fontData: ArrayBuffer = await fontFile.arrayBuffer();
+
 function sanitize(html: string) {
   return strip(html.replace(/&/g, '&amp;').replace(/</g, '&lt;'));
 }
 
 export const GET = async ({ fetch, url, params }) => {
-  const fontFile = await fetch('/Inter-Regular.ttf');
-  const fontData: ArrayBuffer = await fontFile.arrayBuffer();
-
   const width = Number(url.searchParams.get('width')) || 500;
   const height = Number(url.searchParams.get('height')) || 90;
   const dark = url.searchParams.get('dark') === 'true';
@@ -43,7 +43,7 @@ export const GET = async ({ fetch, url, params }) => {
   return new Response(svg, {
     headers: {
       'content-type': 'image/svg+xml',
-      'cache-control': 'max-age=120, s-maxage=120'
+      'cache-control': 'max-age=120, s-maxage=120',
     },
   });
 };
