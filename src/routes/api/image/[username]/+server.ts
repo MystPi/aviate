@@ -1,8 +1,8 @@
 import { toSvg } from '$lib/image';
-import { strip } from 'node-emoji';
+import emojiRegex from 'emoji-regex';
 
 function sanitize(html: string) {
-  return strip(html.replace(/&/g, '&amp;').replace(/</g, '&lt;'));
+  return html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replaceAll(emojiRegex(), '');
 }
 
 export const GET = async ({ fetch, url, params }) => {
