@@ -1,9 +1,6 @@
 import { toSvg } from '$lib/image';
 import { strip } from 'node-emoji';
 
-const fontFile = await fetch('https://rsms.me/inter/font-files/Inter-Regular.woff');
-const fontData: ArrayBuffer = await fontFile.arrayBuffer();
-
 function sanitize(html: string) {
   return strip(html.replace(/&/g, '&amp;').replace(/</g, '&lt;'));
 }
@@ -16,7 +13,7 @@ export const GET = async ({ fetch, url, params }) => {
   const res = await fetch(`/api/${params.username}`);
   const json = await res.json();
 
-  const status = sanitize(json.status);
+  const status = sanitize(json.status ?? '');
 
   const html = dark
     ? `
@@ -38,7 +35,7 @@ export const GET = async ({ fetch, url, params }) => {
     </div>
   `;
 
-  const svg = await toSvg(html, width, height, fontData);
+  const svg = await toSvg(html, width, height);
 
   return new Response(svg, {
     headers: {
