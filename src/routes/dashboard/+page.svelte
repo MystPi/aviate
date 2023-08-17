@@ -12,8 +12,8 @@
     DynamicImage,
   } from '$lib/components';
   import { run } from '$lib/statuslang';
-  import { slide, fade } from 'svelte/transition';
   import { Play, Checkmark, Copy, Book, Locked } from '$lib/icons';
+  import { slide, fade } from 'svelte/transition';
   import confetti from 'canvas-confetti';
 
   export let data;

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Seo, Button } from '$lib/components';
   import { annotate } from '$lib/annotate';
-  import { goto } from '$app/navigation';
   import { Search, Rocket } from '$lib/icons';
+  import { goto } from '$app/navigation';
 
   export let data;
 
