@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Seo, Button } from '$lib/components';
-  import { Search, Rocket } from '$lib/icons';
   import { annotate } from '$lib/annotate';
+  import { Search, Rocket } from '$lib/icons';
   import { goto } from '$app/navigation';
 
   export let data;
@@ -34,7 +34,7 @@
       Get started <Rocket class="transition group-hover:rotate-45" />
     </Button>
     <a href="/tutorial">Read the tutorial →</a>
-    <span class="ml-auto"><strong>{data.userCount}</strong> users</span>
+    <span class="ml-auto hidden sm:inline"><strong>{data.userCount}</strong> users</span>
   </div>
 </header>
 

@@ -9,6 +9,7 @@
     HighlightedTextarea,
     Components,
     Prose,
+    DynamicImage,
   } from '$lib/components';
   import { run } from '$lib/statuslang';
   import { Play, Checkmark, Copy, Book, Locked } from '$lib/icons';
@@ -152,4 +153,6 @@
       for all ages!
     </p>
   </Prose>
+
+  <DynamicImage username={data.username ?? ''} />
 </main>

@@ -45,8 +45,10 @@
     "chevrotain": "^11.0.1",
     "jsonwebtoken": "^9.0.1",
     "magic-string": "^0.30.1",
+    "node-emoji": "^2.1.0",
     "nprogress": "^0.2.0",
     "rough-notation": "^0.5.1",
+    "satori": "^0.10.3",
     "zod": "^3.21.4"
   }
 }

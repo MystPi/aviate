@@ -6,3 +6,4 @@ export { default as HighlightedTextarea } from './HighlightedTextarea.svelte';
 export { default as Components } from './Components.svelte';
 export { default as Codeblock } from './Codeblock.svelte';
 export { default as Seo } from './Seo.svelte';
+export { default as DynamicImage } from './DynamicImage.svelte';
