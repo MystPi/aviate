@@ -1,6 +1,7 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import { beforeNavigate } from '$app/navigation';
+  import { browser } from '$app/environment';
   import {
     Seo,
     PageHeader,
@@ -31,7 +32,7 @@
   let statusResult = '';
 
   $: if (form) loadingStatus = form.success ? Status.Success : Status.Failure;
-  $: if (form?.success && typeof document !== 'undefined') {
+  $: if (form?.success && browser) {
     confetti({ origin: { x: 0, y: 1 }, angle: 45 });
     confetti({ origin: { x: 1, y: 1 }, angle: 135 });
   }
